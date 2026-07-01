@@ -1,0 +1,50 @@
+.hub-authors {
+    /*align-content: center;*/
+    /*text-align: center;*/
+
+    border-radius: 0!important;
+}
+
+.hub-authors .image-author{
+    margin: auto;
+    /*border-radius: 100%;*/
+    width: 100%;
+    height: 100%;
+    aspect-ratio:1/1;
+    /*border: 6px solid white;*/
+    /*box-shadow: 0 0 50px #dcdcdc;*/
+}
+.card-title {
+    color: #0e3780!important;
+    font-weight: 700!Important;
+    color: #1d1d1f!Important;
+    font-size: 16px!Important;
+}
+.card-text {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    color: #404040;
+    margin: 0;
+}
+.radius{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.authorPost .icon-text {
+    font-size: 16px!important;
+}
+.person-article {
+    border-radius: 100% !important;
+    overflow: hidden;
+}
+
+.person-article .image-wrapper{
+    border:none!important;
+}
+.person-article .image-wrapper img {
+    width: 100%;
+     height: auto!important;
+    display: block;
+}

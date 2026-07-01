@@ -1,0 +1,41 @@
+.post .author{
+    background: #f4f5f6;
+}
+.author{
+    padding:15px 15px;
+    border-radius: var(--border-radius);
+}
+.author .img{
+    border-radius: 50%;
+    width: 40px;
+    margin-right: 7px;
+    border: 3px solid #e9e9ea;
+}
+.author p{
+    font-size: 13px;
+}
+
+.author .icon-title{
+    font-size: 11px;
+}
+.author .icon-text{
+    font-size: 12px;
+    font-weight: bold;
+}
+.selected-author img.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.person-one-article {
+    border-top-left-radius: 6.375rem;
+    border-bottom-right-radius: 6.375rem;
+    overflow: hidden;
+    /*margin: 10px;*/
+    background: #2A7B9B;
+    background: linear-gradient(36deg, rgba(42, 123, 155, 1) 0%, rgb(18, 46, 95) 100%);
+    height: fit-content;
+    min-width: 100%;
+}

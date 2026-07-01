@@ -1,0 +1,200 @@
+/* =================================================================
+   PAGE — Anuncie
+   ================================================================= */
+
+.advertise-page {
+    color: #1d1d1f;
+}
+
+/* HERO ------------------------------------------------------------- */
+
+.advertise-hero {
+    background: #ffffff;
+}
+
+.advertise-hero h1 {
+    font-size: clamp(1.75rem, 2.6vw + 1rem, 2.4rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    position: relative;
+    display: inline-block;
+}
+
+.advertise-hero h1::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #8b9754;
+    margin: 1rem 0 0 0;
+}
+
+.advertise-hero p {
+    color: #5a6450;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 0.85rem;
+}
+
+.advertise-hero-caption {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6e7944;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.advertise-hero-caption::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: #8b9754;
+}
+
+/* CALENDAR SECTION ------------------------------------------------- */
+
+.advertise-calendar-section {
+    padding: 3rem 0;
+}
+
+.advertise-calendar-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.advertise-calendar-title {
+    font-size: clamp(1.5rem, 2vw + 0.8rem, 2rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+}
+
+.advertise-calendar-title::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #8b9754;
+    margin: 0.75rem auto 0;
+}
+
+.advertise-calendar-subtitle {
+    color: #5a6450;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* TABLE ------------------------------------------------------------ */
+
+.advertise-calendar-table-wrapper {
+    background: #ffffff;
+    border: 1px solid #e8ebe1;
+    overflow: hidden;
+}
+
+.advertise-calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.advertise-calendar-table thead {
+    background: #ffffff;
+    color: #1d1d1f;
+}
+
+.advertise-calendar-table thead th {
+    padding: 0.85rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+    border: 0;
+    border-bottom: 2px solid #e8ebe1;
+    white-space: nowrap;
+    color: #6e7944;
+}
+
+.advertise-calendar-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.advertise-calendar-table tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.advertise-calendar-table tbody tr:hover {
+    background: #f3f4ef;
+}
+
+.advertise-calendar-table tbody td,
+.advertise-calendar-table tbody th {
+    padding: 0.85rem 1rem;
+    border: 0;
+    border-top: 1px solid #e8ebe1;
+    vertical-align: middle;
+    color: #1d1d1f;
+}
+
+.advertise-calendar-table tbody th {
+    font-weight: 800;
+    color: #6e7944;
+    font-size: 0.95rem;
+    width: 80px;
+}
+
+.advertise-calendar-table .ad-empty {
+    color: #b8bdb0;
+    font-weight: 400;
+}
+
+/* RESPONSIVO ------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .advertise-hero .row {
+        flex-direction: column-reverse;
+    }
+
+    .advertise-hero [class*="col-lg-"] {
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .advertise-calendar-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .advertise-calendar-table {
+        min-width: 720px;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .advertise-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .advertise-hero p {
+        font-size: 0.95rem;
+    }
+
+    .advertise-calendar-section {
+        padding: 2rem 0;
+    }
+}

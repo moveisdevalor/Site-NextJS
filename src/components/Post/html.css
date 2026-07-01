@@ -1,0 +1,382 @@
+/* =================================================================
+   COMPONENT — Conteúdo HTML do post
+   ================================================================= */
+
+.html-content {
+    position: relative;
+}
+
+.html-content img {
+    max-width: 100%;
+}
+
+.html-content .image {
+    float: none;
+    align-content: center;
+    margin: 1.25rem auto !important;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.html-content .image-style-side {
+    float: right;
+    margin-left: 1.25rem !important;
+    margin-top: 5px;
+    margin-bottom: 0.75rem;
+    max-width: 50%;
+}
+
+.html-content figure {
+    position: relative;
+    margin: 0;
+}
+
+.html-content .image figcaption {
+    background: #f0f0f0;
+    color: #333;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.78rem;
+    text-align: left;
+    font-style: italic;
+}
+
+.html-content p {
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+    color: #2d2d2d;
+    font-weight: 400;
+}
+
+.html-content figure img,
+.html-content-article figure img {
+    width: 100%;
+}
+
+.html-content .link-post {
+    border-top: 1px solid #e8ebe1;
+    border-bottom: 1px solid #e8ebe1;
+    padding: 0.75rem 0;
+    text-align: center !important;
+    align-content: center;
+    margin: 1.25rem 0;
+}
+
+.html-content .link-post a {
+    text-align: center;
+    align-content: center;
+    font-size: 0.85rem;
+    color: #1d1d1f;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.html-content strong {
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+blockquote {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin: 0;
+    padding: 18px 0 20px 80px;
+    border: none;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    color: #1d1d1f;
+    font-size: 24px;
+    line-height: 1.25em;
+    letter-spacing: -0.02em;
+    quotes: none;
+    z-index: 1;
+}
+
+.image-style-align-left {
+    float: left;
+    margin-right: 1.25rem !important;
+    max-width: 50%;
+}
+
+.html-content blockquote {
+    border-left: 4px solid #8b9754;
+    text-align: initial !important;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    font-size: 1.2rem;
+    color: #1d1d1f;
+    font-weight: 600;
+    margin: 1.5rem 0;
+    line-height: 1.4;
+}
+
+.html-content ul,
+.html-content ol {
+    text-align: start !important;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+    list-style-position: outside;
+}
+
+.html-content ul {
+    list-style-type: disc;
+}
+
+.html-content ol {
+    list-style-type: decimal;
+}
+
+.html-content ul li,
+.html-content ol li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    display: list-item;
+}
+
+.html-content ul li {
+    list-style-type: disc;
+}
+
+.html-content ol li {
+    list-style-type: decimal;
+}
+
+.html-content ol > li::marker {
+    color: #8b9754;
+    font-weight: 700;
+}
+
+.html-content ul li > p,
+.html-content ol li > p {
+    margin: 0 0 0.3rem 0;
+    display: inline;
+}
+
+.html-content ul li > p:last-child,
+.html-content ol li > p:last-child {
+    margin-bottom: 0;
+}
+
+.html-content a,
+.html-content-article a {
+    color: #8b9754 !important;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.html-content a:hover,
+.html-content-article a:hover {
+    color: #6e7944 !important;
+}
+
+.html-content a strong {
+    color: inherit !important;
+    font-weight: 700;
+}
+
+.html-content-article p,
+.html-content-article li {
+    text-align: justify !important;
+}
+
+.html-content-article h3 {
+    text-align: center !important;
+    margin: 1.5rem 0 0.75rem 0;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.html-content-article .image {
+    margin-bottom: 1.25rem !important;
+}
+
+/* Subtítulo — heading2 vindo do editor */
+.html-content h2,
+.html-content-article h2 {
+    font-size: 16px !important;
+    color: #8b9754 !important;
+}
+
+/* =================================================================
+   Estilos personalizados aplicados pelo CKEditor (plugin Style)
+   Devem casar com dash/src/components/ckeditor/editor-styles.css
+   ================================================================= */
+
+.html-content .leia-mais,
+.html-content-article .leia-mais,
+.html-content a.leia-mais,
+.html-content-article a.leia-mais {
+    display: block;
+    clear: both;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #8b9754;
+    padding: 16px 0;
+    margin: 24px 0;
+    border-top: 1px solid #8b9754;
+    border-bottom: 1px solid #8b9754;
+    text-decoration: none !important;
+}
+
+.html-content .leia-mais a,
+.html-content-article .leia-mais a {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+.html-content .leia-mais:hover,
+.html-content-article .leia-mais:hover,
+.html-content a.leia-mais:hover,
+.html-content-article a.leia-mais:hover,
+.html-content .leia-mais a:hover,
+.html-content-article .leia-mais a:hover {
+    color: #8b9754 !important;
+    text-decoration: none !important;
+}
+
+.html-content p.destaque-cinza,
+.html-content .destaque-cinza,
+.html-content-article p.destaque-cinza,
+.html-content-article .destaque-cinza {
+    display: block !important;
+    background-color: #8b9754 !important;
+    color: #ffffff !important;
+    padding: 16px 20px !important;
+    border-radius: 6px !important;
+    margin: 16px 0 !important;
+}
+
+.html-content p.bloquete,
+.html-content .bloquete,
+.html-content-article p.bloquete,
+.html-content-article .bloquete {
+    display: block !important;
+    font-style: italic !important;
+    border-left: 4px solid #8b9754 !important;
+    padding: 8px 0 8px 18px !important;
+    margin: 16px 0 !important;
+    color: #444 !important;
+}
+
+.html-content .citacao,
+.html-content p.citacao,
+.html-content blockquote.citacao,
+.html-content-article .citacao,
+.html-content-article p.citacao,
+.html-content-article blockquote.citacao {
+    display: block !important;
+    border: 1px solid #8b9754 !important;
+    border-left: 1px solid #8b9754 !important;
+    padding: 16px 20px !important;
+    border-radius: 6px !important;
+    margin: 16px 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.html-content p.capitular,
+.html-content .capitular,
+.html-content-article p.capitular,
+.html-content-article .capitular {
+    display: block !important;
+}
+.html-content p.capitular::first-letter,
+.html-content .capitular::first-letter,
+.html-content-article p.capitular::first-letter,
+.html-content-article .capitular::first-letter {
+    float: left !important;
+    font-size: 4em !important;
+    line-height: 0.85 !important;
+    font-weight: 700 !important;
+    color: #8b9754 !important;
+    padding: 4px 10px 0 0 !important;
+    margin-top: 4px !important;
+}
+
+.html-content li.pilula,
+.html-content-article li.pilula {
+    display: inline-block !important;
+    background-color: #8b9754 !important;
+    color: #ffffff !important;
+    padding: 4px 14px !important;
+    border-radius: 999px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    margin: 0 6px 6px 0 !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    list-style-image: none !important;
+    vertical-align: middle !important;
+}
+
+.html-content li.pilula > p,
+.html-content-article li.pilula > p {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+    background: none !important;
+    color: inherit !important;
+}
+
+.html-content li.pilula::before,
+.html-content-article li.pilula::before {
+    content: none !important;
+    display: none !important;
+}
+
+.html-content li.pilula::marker,
+.html-content-article li.pilula::marker {
+    content: "" !important;
+    color: transparent !important;
+    font-size: 0 !important;
+}
+
+/* =================================================================
+   Alinhamento de imagens (classes geradas pelo plugin ImageStyle)
+   ================================================================= */
+
+.html-content .image-style-align-center,
+.html-content .image-style-block-align-center,
+.html-content-article .image-style-align-center,
+.html-content-article .image-style-block-align-center {
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.html-content .image-style-align-left,
+.html-content .image-style-block-align-left,
+.html-content-article .image-style-align-left,
+.html-content-article .image-style-block-align-left {
+    float: left !important;
+    margin: 0 1.5em 1em 0 !important;
+    text-align: left !important;
+    clear: none !important;
+}
+
+.html-content .image-style-align-right,
+.html-content .image-style-block-align-right,
+.html-content-article .image-style-align-right,
+.html-content-article .image-style-block-align-right {
+    float: right !important;
+    margin: 0 0 1em 1.5em !important;
+    text-align: right !important;
+    clear: none !important;
+}
+
+.html-content .image img,
+.html-content figure img,
+.html-content-article .image img,
+.html-content-article figure img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+}

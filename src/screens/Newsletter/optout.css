@@ -1,0 +1,66 @@
+.optout-page {
+    min-height: 100vh;
+    /*background: linear-gradient(135deg, #111827, #1f2937);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.optout-card {
+    background: white;
+    padding: 40px;
+    width: 420px;
+    border-radius: 14px;
+    text-align: center;
+    /*box-shadow: 0 20px 60px rgba(0,0,0,0.3);*/
+}
+
+.optout-card h1 {
+    margin-bottom: 10px;
+}
+
+.optout-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.optout-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.optout-card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirm-section {
+    margin-top: 10px;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.danger {
+    background: #dc2626;
+    color: white;
+}
+
+.secondary {
+    background: #e5e7eb;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 14px;
+}

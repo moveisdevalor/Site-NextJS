@@ -1,0 +1,181 @@
+/* =================================================================
+   MV-UI — utilitários compartilhados (botões, títulos, page wrapper)
+   ================================================================= */
+
+/* PAGE WRAPPER ---------------------------------------------------- */
+
+.mv-page {
+    color: #1d1d1f;
+}
+
+/* SECTION TITLE --------------------------------------------------- */
+
+.mv-section-title {
+    font-size: clamp(1.5rem, 2vw + 0.8rem, 2rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 1rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.mv-section-title::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #8b9754;
+    margin: 0.75rem 0 0 0;
+}
+
+.mv-section-title-center {
+    display: block;
+    text-align: center;
+}
+
+.mv-section-title-center::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mv-section-subtitle {
+    color: #5a6450;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* BUTTONS --------------------------------------------------------- */
+
+.mv-btn,
+.mv-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em 1.6em;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.mv-btn::after,
+.mv-btn-outline::after {
+    content: "→";
+    font-size: 1em;
+}
+
+.mv-btn-no-arrow::after {
+    content: none;
+}
+
+/* Primário (sólido) */
+.mv-btn {
+    color: #ffffff;
+    background: #8b9754;
+    border: 1px solid #8b9754;
+}
+
+.mv-btn:hover,
+.mv-btn:focus {
+    color: #ffffff;
+    background: #6e7944;
+    border-color: #6e7944;
+    transform: translateY(-1px);
+}
+
+.mv-btn:disabled {
+    background: #b8bdb0;
+    border-color: #b8bdb0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Secundário (outline) */
+.mv-btn-outline {
+    color: #8b9754;
+    background: transparent;
+    border: 1px solid #8b9754;
+}
+
+.mv-btn-outline:hover,
+.mv-btn-outline:focus {
+    color: #ffffff;
+    background: #8b9754;
+    transform: translateY(-1px);
+}
+
+/* Tamanho compacto */
+.mv-btn-sm {
+    padding: 0.55em 1.1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* MAGAZINE STACK -------------------------------------------------- */
+
+.mv-magazine-stack {
+    position: relative;
+    height: 420px;
+    perspective: 1200px;
+}
+
+.mv-magazine-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    transform:
+        translateX(calc(var(--i) * 28px))
+        translateY(calc(var(--i) * 25px))
+        scale(calc(1 - var(--i) * 0.05))
+        rotateY(calc(var(--i) * -6deg));
+    transition: 0.4s ease;
+    z-index: calc(10 - var(--i));
+}
+
+.mv-magazine-item figure {
+    margin: 0;
+}
+
+/* RESPONSIVO ------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .mv-magazine-stack {
+        max-width: 240px;
+        height: auto;
+        margin: 0 auto 2rem auto;
+        perspective: none;
+    }
+
+    .mv-magazine-item {
+        position: relative;
+        transform: none;
+    }
+
+    .mv-magazine-item:not(:first-child) {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .mv-magazine-stack {
+        max-width: 200px;
+    }
+
+    .mv-btn,
+    .mv-btn-outline {
+        padding: 0.7em 1.3em;
+        font-size: 0.9rem;
+    }
+}

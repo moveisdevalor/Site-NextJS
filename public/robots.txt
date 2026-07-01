@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# bloquear áreas técnicas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+
+Sitemap: https://www.moveisdevalor.com.br/sitemap.xml
+Sitemap: https://www.moveisdevalor.com.br/news-sitemap.xml

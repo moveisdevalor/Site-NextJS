@@ -1,0 +1,29 @@
+figure{
+    position: relative;
+    margin: 0!important;
+}
+.post-legend{
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: white;
+    padding: 7px 10px;
+    border-radius: var(--border-radius);
+    /*text-shadow: 1px 1px #101010;*/
+    text-shadow: #000000 1px 0 10px;
+}
+.image-zoom {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-zoom img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.45s ease;
+}
+
+.image-zoom:hover img {
+    transform: scale(1.032);
+}

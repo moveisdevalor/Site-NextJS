@@ -1,0 +1,112 @@
+/*:root {*/
+/*    --bg: #f6f7f8;*/
+/*    --header-bg: #000;*/
+/*    --text-color: #171717;*/
+/*    --text-color-secundary: #858585;*/
+/*    --font-size: .775rem;*/
+/*    --border-color: #494949;*/
+/*}*/
+
+:root {
+    --bg: #fbfbfb;
+    --header-bg: var(--background-primary);
+    --text-color: #504f4f;
+    --text-color-secundary: #858585;
+    --font-size: .925rem;
+    --font-size-secundary: .775rem;
+    --font-size-svg: .975rem;
+    --border-color:  #fbfbfb;
+    --border-color-secundary: #e9ecef;
+}
+
+.header{
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    opacity: 1;
+    /*margin-bottom: 30px;*/
+    overflow: hidden;
+}
+.header .header-top{
+    width: 100%!important;
+    background-color: var(--header-bg);
+    padding: 10px;
+}
+.header .header-content{
+    width: 100%;
+}
+.header .header-bottom{
+    border-top: 1px solid var(--border-color-secundary);
+    border-bottom: 1px solid var(--border-color-secundary);
+}
+
+.header .brand{
+    padding: 20px 0;
+    border-right: 1px solid var(--border-color);
+    opacity: 1;
+}
+
+.header .header-top p{
+    font-size: var(--font-size-secundary);
+    color: var(--text-color-secundary);
+    margin-left: 20px;
+}
+
+.header .header-top svg{
+    margin: 0;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: var(--font-size-svg);
+}
+.header .menus {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.header .menu{
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    opacity: 1;
+    margin: 0;
+}
+
+.header .menus .header-top:first-child {
+    position: relative;
+}
+.header .menus .header-top:first-child:before{
+        display: block;
+        width: calc(((100vw - 200px) / 2) + 30px);
+        content: "";
+        position: absolute;
+        left: 100%;
+        bottom: -1px;
+        /*width: 0;*/
+        height: 1px;
+        /*border-bottom: 1px solid #494949;*/
+        background-color: var(--border-color);
+}
+.header .navbar{
+    margin: 0;
+    margin-left: -8px;
+    padding: 0;
+}
+.header .navbar .nav-item .nav-link{
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: var(--font-size);
+    margin-right: 12px;
+}
+
+.header .menus .news{
+    border-right: 1px solid var(--border-color);
+    padding: 13px;
+    font-weight: bold;
+    font-size: var(--font-size);
+}
+.header .menu .social svg{
+     margin-left: 10px;
+     font-size: var(--font-size-svg);
+    color: #124083
+ }
+

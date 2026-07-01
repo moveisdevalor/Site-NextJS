@@ -1,0 +1,31 @@
+.related-container {
+    border-top: 2px solid #8b9754;
+    padding-top: 0.75rem;
+    margin-top: 1rem;
+}
+
+.related-container h2 {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    color: #1d1d1f;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+}
+
+.related-container a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f1f1ee;
+    transition: color 0.2s ease;
+}
+
+.related-container a:last-child {
+    border-bottom: 0;
+}
+
+.related-container a:hover {
+    color: #8b9754;
+}

@@ -1,0 +1,83 @@
+.titulo {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.medida {
+    font-size: 13px;
+    margin-top: 6px;
+    color: #666;
+}
+
+.modelo {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+/* página inteira */
+.pagina {
+    width: 160px;
+    height: 210px;
+    background: #dcdcdc;
+}
+
+/* página dupla */
+.dupla {
+    width: 320px;
+    height: 210px;
+}
+
+.dupla div {
+    flex: 1;
+}
+
+.dupla div:first-child {
+    background: #e5e5e5;
+}
+
+.dupla div:last-child {
+    background: #cfcfcf;
+}
+
+/* página indeterminada */
+.pagina-indeterminada {
+    width: 160px;
+    height: 210px;
+}
+
+.pagina-clara {
+    flex: 1;
+    background: #f1f1f1;
+}
+
+.pagina-escura {
+    flex: 1;
+    background: #c9c9c9;
+}
+
+/* meia horizontal */
+.horizontal {
+    width: 160px;
+    height: 105px;
+}
+
+/* meia vertical */
+.vertical {
+    width: 80px;
+    height: 210px;
+}
+
+/* rodapé */
+.rodape {
+    width: 160px;
+    height: 40px;
+}
+
+.area-anuncio {
+    flex: 1;
+    background: #9c9c9c;
+}

@@ -1,0 +1,28 @@
+.header-top{
+    /*background-color: #000000;*/
+    padding:10px 0 ;
+    color: #000000;
+    /*display: none;*/
+    /*border-bottom:1px solid #eee;*/
+}
+header{
+    border-bottom:1px solid #eee;
+    /*padding:5px ;*/
+    /*margin:5px ;*/
+}
+.navbar {
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    /*border-top: solid 1px #f3f3f3;*/
+    /*border-top:1px solid #161815;*/
+    /*border-bottom:1px solid #161815;*/
+    /*border:1px solid #161815;*/
+    border-radius: 7px;
+    /*background: black;*/
+    /*color: #ffffff;*/
+    /*border-bottom:1px solid #eee;*/
+}
+.header-border{
+    /*border-top: solid 1px #cccccc;*/
+    /*border-bottom: solid 1px #cccccc;*/
+}

@@ -1,0 +1,247 @@
+@charset "UTF-8";
+@import "./mv-ui.css";
+
+:root{
+    --color-primary: #3e4517;
+    /*--color-primary: #1a538b;*/
+    --color-secundary: #f6f7f8;
+    --background-primary: #fdfdfd;
+    --background-secundary: #292929;
+    --font-size-1: 12px;
+    --font-size-2: 14px;
+    --font-size-3: 16px;
+    --font-size-4: 20px;
+    --radius: 5px;
+    --border-radius: 3px;
+    --padding: 35px;
+    --bg: #191919;
+    --header-bg: var(--background-secundary);
+    --text-color: #fbfbfb;
+    --text-color-secundary: #c1bfbf;
+    --font-size: .775rem;
+    --font-size-secundary: .675rem;
+    --font-size-svg: .975rem;
+    --border-color: #dcdbdb;
+    --border-color-secundary: #494949;
+}
+.font-dancing{
+    font-family: "Dancing Script", cursive!important;
+}
+.font-outfit{
+    font-family: "Outfit", sans-serif!important;
+}
+body {
+    font-family: "Inter", sans-serif!important;
+    background-color: var(--background-primary);
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #1d1d1f;
+}
+#root {
+    /*font-family: "Plus Jakarta Sans", sans-serif!important;*/
+    background-color: var(--background-primary);
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+p, h1, h2, h3, h4, h5, h6, span {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 1.0rem;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.9rem;
+    line-height: 2.8rem;
+}
+
+h3 {
+    font-size: var(--font-size-3);
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+h5 {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+.container {
+    max-width: 1200px;
+}
+.section {
+    /*padding: 50px 0;*/
+}
+
+.bg-light {
+    background-color: var(--background-primary);
+}
+
+.btn {
+    background: var(--background-secundary);
+    color: white;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem !important;
+    padding: 7px 20px 7px 20px;
+}
+
+.btn:hover {
+    background: #3a3a3a;
+    color: white;
+}
+
+.btn.defaul {
+    background-color: white;
+    color: var(--color-secundary);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem !important;
+    padding: 7px 20px 7px 20px;
+    border: 1px solid var(--color-secundary);
+}
+
+
+.title {
+    color: var(--color-secundary) !important;
+    line-height: 29px;
+    font-size: 28px !important;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: var(--color-secundary) !important;
+    line-height: 19px;
+    font-size: 18px !important;
+    padding: 0;
+    margin-bottom: 0 !important;
+    font-weight: bold;
+}
+
+.img-rounded {
+    border-radius: var(--radius);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #dddddd;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.post-list-title {
+    font-size: 0.8rem;
+}
+
+.post-list-title-dest {
+    font-size: 1.2rem;
+}
+
+.post-list-subtitle {
+    font-size: 12px;
+}
+
+.copy {
+    background-color: #0c0c0d !important;
+}
+
+.copy p{
+    font-size: 0.8rem;
+    color: #d8d7d7;
+}
+.p-50{
+    padding-top: 50px!important;
+    padding-bottom: 50px!important;
+}
+
+.py-30{
+    padding-top: 30px!important;
+    padding-bottom: 30px!important;
+}
+
+.pt-50{
+    padding-top: 50px !important;
+}
+.p-100{
+    padding: 100px 0 !important;
+}
+
+.pt-100{
+    padding-top: 100px !important;
+}
+.section-600{
+    height: 600px;
+    align-content: center;
+}
+
+
+.header-page{
+
+}
+
+.header-page h1{
+    font-size: 3rem !important;
+    font-weight: 700;
+    margin-bottom: 1.2rem !important;
+}
+
+.header-page h2{
+    font-size: .875rem !important;
+    font-weight: 700;
+    margin-bottom: 0.5rem !important;
+}
+
+.header-page p{
+    font-size: .975rem !important;
+    font-weight: 500;
+    margin-bottom: 1.2rem !important;
+}
+
+
+.pagination-container{
+    margin: auto;
+    text-align: center;
+}
+
+.pagination-container .pagination-btn{
+    border: none;
+    padding: 7px 20px 7px 20px;
+    margin: 30px 5px;
+}
+.pagination-container .pagination-btn.active{
+    background-color: var(--color-primary);
+    color: var(--color-secundary);
+}
+
+.sticky{
+    position: sticky;
+    top: 50px;
+    bottom: 50px;
+}

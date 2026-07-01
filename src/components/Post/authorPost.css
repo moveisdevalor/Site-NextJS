@@ -1,0 +1,65 @@
+/* =================================================================
+   COMPONENT — Autor (caixa de autor no final do post)
+   ================================================================= */
+
+.authorPost {
+    padding: 1.25rem 0;
+    border: 0;
+    background: transparent;
+}
+
+.post .authorPost {
+    background: transparent;
+}
+
+.authorPost .img {
+    border-radius: 50%;
+    width: 88px;
+    height: 88px;
+    aspect-ratio: 1 / 1;
+    margin-right: 1.25rem;
+    border: 0;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.authorPost p {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    line-height: 1.55;
+    margin-bottom: 0.25rem;
+}
+
+.authorPost .icon-title {
+    font-size: 0.7rem;
+    color: #8b9754;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.authorPost .icon-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 0.35rem;
+    line-height: 1.2;
+}
+
+.authorPost a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.authorPost a:hover .icon-text {
+    color: #8b9754;
+}
+
+.selected-authorPost img.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}

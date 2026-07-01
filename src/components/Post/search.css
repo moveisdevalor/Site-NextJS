@@ -1,0 +1,24 @@
+.input-group input {
+    border-radius: 0 !important;
+    border-color: #e8ebe1;
+}
+
+.input-group input:focus {
+    border-color: #8b9754;
+    box-shadow: none;
+    outline: none;
+}
+
+.input-group button {
+    background: #8b9754;
+    border-color: #8b9754;
+    color: #ffffff;
+    border-radius: 0 !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.input-group button:hover,
+.input-group button:focus {
+    background: #6e7944;
+    border-color: #6e7944;
+}

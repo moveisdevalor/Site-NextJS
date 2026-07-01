@@ -1,0 +1,9 @@
+.publication iframe{
+  height: 650px;
+}
+.title-magazine{
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+@media screen and (max-width: 766px) {
+
+}

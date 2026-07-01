@@ -1,0 +1,367 @@
+/* =================================================================
+   PAGE — MVTV
+   ================================================================= */
+
+.mvtv-page {
+    color: #1d1d1f;
+}
+
+/* HEADER ----------------------------------------------------------- */
+
+.mvtv-header {
+    margin-bottom: 2rem;
+    text-align: left;
+    max-width: 720px;
+}
+
+.mvtv-header h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    position: relative;
+    display: inline-block;
+}
+
+.mvtv-header h1::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #8b9754;
+    margin: 0.75rem 0 0 0;
+}
+
+.mvtv-header p {
+    color: #5a6450;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* FEATURED PLAYER -------------------------------------------------- */
+
+.mvtv-featured {
+    background: #ffffff;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.mvtv-featured-body {
+}
+
+.mvtv-featured-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.mvtv-featured-meta {
+    display: flex;
+    gap: 1rem;
+    color: #5a6450;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.mvtv-featured-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+}
+
+.mvtv-featured-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.mvtv-featured-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* SECTION TITLE ---------------------------------------------------- */
+
+.mvtv-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 1rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.mvtv-section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #8b9754;
+    margin: 0.5rem 0 0 0;
+}
+
+/* GRID ------------------------------------------------------------- */
+
+.mvtv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+/* CARD ------------------------------------------------------------- */
+
+.mvtv-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e8ebe1;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
+}
+
+.mvtv-card:hover {
+    border-color: #c9d1b3;
+}
+
+.mvtv-card-active {
+    border-color: #8b9754;
+}
+
+.mvtv-card-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #f0f2eb;
+    overflow: hidden;
+}
+
+.mvtv-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mvtv-card-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(45, 58, 31, 0);
+    transition: background 0.25s ease;
+}
+
+.mvtv-card:hover .mvtv-card-play {
+    background: rgba(45, 58, 31, 0.35);
+}
+
+.mvtv-card-play-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #8b9754;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.mvtv-card:hover .mvtv-card-play-icon {
+    opacity: 1;
+}
+
+.mvtv-card-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #b54545;
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.55rem;
+}
+
+.mvtv-card-body {
+    padding: 0.65rem 0.75rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.mvtv-card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1d1d1f;
+    margin: 0 0 0.35rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.mvtv-card-meta {
+    display: flex;
+    gap: 0.7rem;
+    color: #5a6450;
+    font-size: 0.7rem;
+    margin-top: auto;
+}
+
+.mvtv-card-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+/* SKELETONS ------------------------------------------------------- */
+
+.mvtv-skeleton-shimmer {
+    background: linear-gradient(90deg, #f0f2eb 25%, #e8ebe1 37%, #f0f2eb 63%);
+    background-size: 400% 100%;
+    animation: mvtv-shimmer 1.4s ease infinite;
+}
+
+.mvtv-skeleton-header {
+    margin-bottom: 2rem;
+}
+
+.mvtv-skeleton-header-title {
+    width: 180px;
+    height: 32px;
+    margin-bottom: 0.75rem;
+}
+
+.mvtv-skeleton-header-bar {
+    width: 64px;
+    height: 4px;
+}
+
+.mvtv-skeleton-featured {
+    background: #ffffff;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.mvtv-skeleton-featured-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.mvtv-skeleton-featured-title {
+    height: 22px;
+    width: 70%;
+    margin-top: 0.75rem;
+}
+
+.mvtv-skeleton-sponsor-label {
+    width: 100px;
+    height: 16px;
+    margin-bottom: 0.75rem;
+}
+
+.mvtv-skeleton-sponsor {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 320px;
+}
+
+.mvtv-skeleton-section-title {
+    width: 160px;
+    height: 20px;
+    margin-bottom: 1rem;
+}
+
+.mvtv-skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.mvtv-skeleton-card {
+    background: #ffffff;
+    border: 1px solid #e8ebe1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mvtv-skeleton-card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.mvtv-skeleton-card-body {
+    padding: 0.65rem 0.75rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.mvtv-skeleton-card-title {
+    height: 14px;
+    width: 90%;
+}
+
+.mvtv-skeleton-card-title-sm {
+    height: 14px;
+    width: 60%;
+}
+
+.mvtv-skeleton-card-meta {
+    height: 10px;
+    width: 50%;
+    margin-top: 0.35rem;
+}
+
+@keyframes mvtv-shimmer {
+    0%   { background-position: 100% 50%; }
+    100% { background-position: 0%   50%; }
+}
+
+/* STATES ----------------------------------------------------------- */
+
+.mvtv-empty,
+.mvtv-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f8f9f5;
+    color: #5a6450;
+}
+
+/* RESPONSIVO ------------------------------------------------------- */
+
+@media (max-width: 575px) {
+
+    .mvtv-grid,
+    .mvtv-skeleton-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .mvtv-card-title {
+        font-size: 0.8rem;
+    }
+
+    .mvtv-featured-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .mvtv-grid,
+    .mvtv-skeleton-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

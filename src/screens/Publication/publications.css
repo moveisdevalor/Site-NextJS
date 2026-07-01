@@ -1,0 +1,227 @@
+/* =================================================================
+   PAGE — Publicações
+   ================================================================= */
+
+.publications-page {
+    color: #1d1d1f;
+}
+
+/* HERO ------------------------------------------------------------- */
+
+.publications-hero {
+    background: #ffffff;
+}
+
+.publications-hero h2 {
+    font-size: clamp(1.75rem, 2.4vw + 1rem, 2.25rem);
+    color: #1d1d1f;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+
+.publications-hero h2 strong {
+    color: #1d1d1f;
+}
+
+.publications-hero p {
+    color: #5a6450;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.publications-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.publications-hero-covers {
+    perspective: 1200px;
+    align-items: center;
+}
+
+.publications-hero-covers a {
+    display: block;
+    line-height: 0;
+}
+
+.publications-hero-covers a figure {
+    margin: 0;
+}
+
+/* SECTION HEADER (por revista) ------------------------------------ */
+
+.publications-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e8ebe1;
+    padding-bottom: 0.75rem;
+}
+
+.publications-section-title {
+    font-size: clamp(1.25rem, 1.5vw + 0.6rem, 1.6rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.publications-section-title::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: #8b9754;
+    margin-top: 0.5rem;
+}
+
+.publications-see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.55em 1.1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    color: #8b9754;
+    background: transparent;
+    border: 1px solid #8b9754;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.publications-see-all::after {
+    content: "→";
+    font-size: 1em;
+}
+
+.publications-see-all:hover,
+.publications-see-all:focus {
+    background: #8b9754;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.publications-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.55em 1.1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #8b9754;
+    background: transparent;
+    border: 1px solid #8b9754;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.publications-back:hover,
+.publications-back:focus {
+    background: #8b9754;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* COVER CARD ------------------------------------------------------- */
+
+.publication-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease;
+}
+
+.publication-card:hover {
+    transform: translateY(-3px);
+}
+
+.publication-card-cover {
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+    line-height: 0;
+}
+
+.publication-card-cover figure {
+    margin: 0;
+}
+
+.publication-card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8b9754;
+    margin: 0;
+    line-height: 1;
+}
+
+.publication-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0.2rem 0 0 0;
+    line-height: 1.3;
+}
+
+/* RESPONSIVO ------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .publications-hero {
+        text-align: left;
+    }
+
+    .publications-hero h2 {
+        margin-top: 1.5rem;
+    }
+
+    .publications-hero-covers {
+        margin-top: 1.5rem;
+        gap: 0.75rem !important;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .publications-hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .publications-hero p {
+        font-size: 0.95rem;
+    }
+
+    .publications-hero-covers {
+        gap: 0.5rem !important;
+    }
+
+    .publications-section-header {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .publication-card-title {
+        font-size: 0.9rem;
+    }
+
+    .publication-card-label {
+        font-size: 0.65rem;
+    }
+}

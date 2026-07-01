@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.card{
+    border: 1px solid #f5f6f8;
+    background: var(--pc-sidebar-background);
+    border-radius: 7px;
+    min-height: 200px;
+ }

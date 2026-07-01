@@ -1,0 +1,80 @@
+.not-found {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.not-found-icon {
+    font-size: 64px;
+    color: #c0c0c0;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.not-found .title {
+    font-size: 100px !important;
+    line-height: 90px;
+    color: #111 !important;
+    margin: 0;
+    font-weight: 800;
+}
+
+.not-found .subtitle {
+    font-size: 22px;
+    color: #222;
+    margin: 16px 0 8px;
+    font-weight: 600;
+}
+
+.not-found .message {
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto 24px;
+    line-height: 1.5;
+}
+
+.not-found-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.not-found-actions .btn-home,
+.not-found-actions .btn-news {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.not-found-actions .btn-home {
+    background: #111;
+    color: #fff;
+}
+
+.not-found-actions .btn-news {
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+}
+
+.not-found-actions .btn-home:hover,
+.not-found-actions .btn-news:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    .not-found .title {
+        font-size: 80px !important;
+        line-height: 70px;
+    }
+}

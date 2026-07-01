@@ -1,0 +1,21 @@
+.magazine {
+    border: 1px solid var(--primary-color)!important;
+    background-color: var(--primary-color)!important;
+    color: #fff;
+    padding: 50px;
+    height: auto!important;
+}
+.magazine h1{
+    color: #fff;
+    font-size: 30px;
+}
+.magazine h2 {
+    color: #fff;
+    font-size: 20px;
+}
+.magazine-img{
+    max-width: 470px;
+    position: absolute;
+    top: -75px;
+    right: -100px;
+}

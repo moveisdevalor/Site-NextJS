@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+label{
+    font-weight: unset!important;
+}
+
+input,
+select {
+    width: 100%;
+    border-radius: 7px !important;
+    /* border: 0!important; */
+    /*background: white !important;*/
+    /*background: red!important;*/
+    padding: 10px 20px !important;
+}
+.form-control:focus {
+    color: red!important;
+    /*background: var(--pc-sidebar-background);*/
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: none;
+}
+.search-input{
+    background: var(--pc-sidebar-background);
+    border: 1px solid #f4f4f6;
+    border-radius: 7px;
+    padding: 12px 15px;
+    box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+}
+
+.badge{
+    background: var(--color-primary);
+    margin: 5px;
+}

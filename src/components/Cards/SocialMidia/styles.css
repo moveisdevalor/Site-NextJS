@@ -1,0 +1,23 @@
+.social-midia h2{
+    font-size: 1.00em!important;
+    font-weight: bold!important;
+    text-align: left;
+}
+.social-midia .icons-midia{
+    /*background: #000000;*/
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 0;
+    border:none;
+    /*border-left: 1px solid #f4f5f6;*/
+    border-top: 3px solid var(--border-color);
+}
+.social-midia .icons-midia svg{
+    margin: auto;
+    color: #3e3d3d;
+    margin-bottom: 25px;
+    font-size: 19px;
+    margin: auto ;
+    margin-top: 10px;
+}
+

@@ -1,0 +1,294 @@
+/* =================================================================
+   PAGE — Newsletter / Cadastro
+   ================================================================= */
+
+.register-page {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    color: #1d1d1f;
+}
+
+.register-container {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    gap: 60px;
+}
+
+/* HERO ------------------------------------------------------------- */
+
+.register-hero {
+    flex: 1;
+    min-width: 0;
+}
+
+.register-hero h1 {
+    font-size: clamp(1.75rem, 2.6vw + 1rem, 2.4rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    position: relative;
+    display: inline-block;
+}
+
+.register-hero h1::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #8b9754;
+    margin: 0.75rem 0 0 0;
+}
+
+.register-hero p {
+    color: #5a6450;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.register-hero .benefits {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.25rem;
+}
+
+.register-hero .benefits li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: #1d1d1f;
+}
+
+/* FORM (sem card) -------------------------------------------------- */
+
+.register-form-card {
+    flex: 1;
+    min-width: 0;
+    color: #1d1d1f;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* FORM SECTIONS ---------------------------------------------------- */
+
+.email-form-section {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px dashed #e8ebe1;
+}
+
+.email-form-section:last-of-type {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.email-base-panel-header {
+    margin-bottom: 1rem;
+}
+
+.email-base-panel-header h5 {
+    font-size: 0.95rem !important;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 0.2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.email-base-panel-header h5::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 3px;
+    background: #8b9754;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.email-base-panel-header p {
+    color: #5a6450;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* FIELDS ----------------------------------------------------------- */
+
+.email-base-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #5a6450;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.email-base-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.email-base-input-wrap svg {
+    position: absolute;
+    left: 0.75rem;
+    color: #8b9754;
+    pointer-events: none;
+}
+
+.register-form-card .email-base-input-wrap .form-control {
+    padding-left: 2.4rem !important;
+}
+
+.register-form-card .form-control,
+.register-form-card .form-select {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+    color: #1d1d1f;
+    background: #ffffff;
+    border: 1px solid #e8ebe1;
+    transition: border-color 0.2s ease;
+}
+
+.register-form-card .form-control:focus,
+.register-form-card .form-select:focus {
+    outline: none;
+    border-color: #8b9754;
+}
+
+.register-form-card .form-control::placeholder {
+    color: #b8bdb0;
+}
+
+/* FOOTER + BOTÃO --------------------------------------------------- */
+
+.email-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+}
+
+.email-form-tip,
+.msg-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    color: #5a6450;
+    font-size: 0.82rem;
+    line-height: 1.3;
+}
+
+.email-form-tip svg,
+.msg-alert svg {
+    color: #8b9754;
+    flex-shrink: 0;
+}
+
+.register-form-card button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 0.85em 1.6em;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;
+    background: #8b9754;
+    border: 1px solid #8b9754;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.register-form-card button[type="submit"]:hover:not(:disabled) {
+    background: #6e7944;
+    border-color: #6e7944;
+    transform: translateY(-1px);
+}
+
+.register-form-card button[type="submit"]:disabled {
+    background: #b8bdb0;
+    border-color: #b8bdb0;
+    cursor: not-allowed;
+}
+
+/* MESSAGE ---------------------------------------------------------- */
+
+.message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #1d1d1f;
+    background: #f8f9f5;
+    border-left: 3px solid #8b9754;
+}
+
+/* SOCIAL ----------------------------------------------------------- */
+
+.social-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #8b9754;
+}
+
+/* RESPONSIVO ------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .register-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .register-page {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .register-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .email-form-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .register-form-card button[type="submit"] {
+        width: 100%;
+    }
+}

@@ -1,0 +1,49 @@
+.formatos {
+    max-width: 900px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.formatos h2 {
+    background: #8b2f2f;
+    color: white;
+    padding: 10px;
+}
+
+.grid-formatos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.formato h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.box {
+    width: 210px;
+    height: 280px;
+    background: #ddd;
+}
+
+.box.dupla {
+    width: 420px;
+    height: 280px;
+}
+
+.box.horizontal {
+    width: 210px;
+    height: 140px;
+}
+
+.box.vertical {
+    width: 105px;
+    height: 280px;
+}
+
+.box.rodape {
+    width: 210px;
+    height: 50px;
+}

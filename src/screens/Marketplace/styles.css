@@ -1,0 +1,20 @@
+.publication .card{
+  height: 650px;
+}
+.publication .card iframe{
+  height: 650px;
+}
+
+iframe{
+}
+
+iframe #publication .top-toolbar-regular .publication-title {
+  background-color: #fff !important;
+  color: red !important;
+}
+#publication .opaqueTop .top-toolbar {
+  background-color: red !important;
+}
+#publication .pager, #publication .top-toolbar-bookshelf .pager-bookshelf, #publication .top-toolbar-bookshelf .toolbar-title, #publication .top-toolbar-regular .publication-title {
+  color: red !important;
+}

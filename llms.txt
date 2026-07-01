@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://www.moveisdevalor.com.br/sitemap.xml
+Sitemap: https://www.moveisdevalor.com.br/news-sitemap.xml
+
+Preferred-Content: https://www.moveisdevalor.com.br/noticias
+Preferred-Language: pt-BR
+Site-Name: Moveis de Valor

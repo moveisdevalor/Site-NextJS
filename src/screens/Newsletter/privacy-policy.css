@@ -1,0 +1,21 @@
+.privacy-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.privacy-container h1 {
+    margin-bottom: 20px;
+}
+
+.privacy-container h2 {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.privacy-container p {
+    margin-top: 10px;
+}
