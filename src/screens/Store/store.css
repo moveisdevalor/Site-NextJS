@@ -1,0 +1,96 @@
+/* =================================================================
+   PAGE — Loja
+   ================================================================= */
+
+.store-page {
+    color: #1d1d1f;
+}
+
+.store-title {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    margin-bottom: 1.5rem;
+}
+
+.store-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.store-filter {
+    padding: 0.5em 1.1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #8b9754;
+    background: transparent;
+    border: 1px solid #8b9754;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.store-filter.active,
+.store-filter:hover {
+    background: #8b9754;
+    color: #ffffff;
+}
+
+/* PRODUCT CARD ------------------------------------------------------ */
+
+.product-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+.product-card-cover {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+    line-height: 0;
+}
+
+.product-card-sold-out {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3em 0.7em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    background: #b3261e;
+    line-height: 1;
+}
+
+.product-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.product-card-price {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8b9754;
+    margin: 0.3rem 0 0 0;
+}
+
+.product-card-price-soldout {
+    color: #b3261e;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.store-empty {
+    color: #5a6450;
+}

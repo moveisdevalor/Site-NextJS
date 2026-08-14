@@ -1,0 +1,217 @@
+.product-page {
+    padding-bottom: 3rem;
+}
+
+.product-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8b9754;
+    text-decoration: none;
+}
+
+.product-back:hover {
+    text-decoration: underline;
+}
+
+.product-title {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8b9754;
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    color: #5a6450;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.product-gallery {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+}
+
+.product-gallery-thumb {
+    width: 64px;
+    padding: 0;
+    border: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.product-gallery-thumb:hover {
+    opacity: 1;
+}
+
+.product-gallery-thumb.active {
+    border-color: #8b9754;
+    opacity: 1;
+}
+
+.product-payment-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.product-payment-actions button {
+    cursor: pointer;
+    border: 1px solid #8b9754;
+}
+
+.product-price-soldout {
+    color: #b3261e;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.product-sold-out-notice {
+    color: #5a6450;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.product-external-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #8b9754;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* PIX MODAL ---------------------------------------------------------- */
+
+.pix-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(29, 29, 31, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.pix-modal {
+    position: relative;
+    background: #ffffff;
+    max-width: 340px;
+    width: 100%;
+    padding: 1.75rem 1.5rem 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.pix-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #5a6450;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0.25rem;
+}
+
+.pix-modal-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 0.25rem;
+}
+
+.pix-modal-subtitle {
+    font-size: 0.9rem;
+    color: #5a6450;
+    margin: 0 0 1rem;
+}
+
+.pix-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pix-modal-input {
+    width: 100%;
+    padding: 0.65em 0.85em;
+    font-size: 0.9rem;
+    border: 1px solid #e8ebe1;
+    border-radius: 4px;
+}
+
+.pix-modal-input:focus {
+    outline: none;
+    border-color: #8b9754;
+}
+
+.pix-modal-error {
+    font-size: 0.8rem;
+    color: #b3261e;
+    margin: 0;
+}
+
+.pix-modal-copy:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pix-modal-qr {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid #e8ebe1;
+    margin-bottom: 1rem;
+}
+
+.pix-modal-hint {
+    font-size: 0.8rem;
+    color: #5a6450;
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.pix-modal-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    width: 100%;
+    padding: 0.75em 1em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #8b9754;
+    border: 1px solid #8b9754;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pix-modal-copy:hover {
+    background: #6e7944;
+}
+
+.pix-modal-key {
+    font-size: 0.75rem;
+    color: #5a6450;
+    margin: 0.85rem 0 0;
+    word-break: break-all;
+}
