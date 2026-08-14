@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import MVTV from "@/screens/MVTV";
 import { fetchVideos, pickVideo } from "@/lib/videos";
 
-export const revalidate = 300;
+export const revalidate = 30;
 
 const SITE_URL = "https://www.moveisdevalor.com.br";
 

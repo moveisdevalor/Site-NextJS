@@ -28,7 +28,7 @@ export default function Index() {
 								O ecossistema se amplia com a MV Norte e Nordeste, publicação regional trimestral voltada à integração do “Brasil de Cima”. Ao longo dos últimos anos, a revista tem fortalecido a conexão entre fornecedores, indústrias e varejistas dessas regiões, ampliando oportunidades de negócio.
 							</p>
 							<p>
-								Outro pilar é o Anuário de Colchões, que chega ao nono ano como referência no segmento colchoeiro, com conteúdo analítico sobre tendências, tecnologia e comportamento de consumo, além de promover a conexão entre indústria, fornecedores e varejo especializado.
+								Outro pilar é o Anuário de Colchões, que é referência no segmento colchoeiro, com conteúdo analítico sobre tendências, tecnologia e comportamento de consumo, além de promover a conexão entre indústria, fornecedores e varejo especializado. Em circulação há mais de uma década, esta publicação é única no mundo e tem ajudado a projetar o setor colchoeiro globalmente.
 							</p>
 							<p>
 								A Móveis de Valor também acompanha a evolução da comunicação, com presença ativa no digital e nas redes sociais. Desde 2008, mantém a MVTV – a única WebTV dedicada ao setor moveleiro no mundo.

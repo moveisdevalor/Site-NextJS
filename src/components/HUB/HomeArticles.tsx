@@ -23,16 +23,58 @@ type AuthorType = {
     latest_post: LatestPost | null;
 };
 
-export default function HomeArticles() {
-    const [authors, setAuthors] = useState<AuthorType[]>([]);
+type HubLatestPost = {
+    post_id: number;
+    title: string;
+    slug: string | null;
+    image_id: number | null;
+    author_name: string | null;
+    author_image_id: number | null;
+};
+
+type Item = {
+    key: number;
+    href: string;
+    image_id: number | null | undefined;
+    title: string;
+    author: string;
+};
+
+export default function HomeArticles({ limit }: { limit?: number } = {}) {
+    const [items, setItems] = useState<Item[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const load = async () => {
             try {
                 setLoading(true);
-                const response = await api.get("/specialist");
-                setAuthors(response.data);
+
+                if (limit) {
+                    // últimos artigos do hub, sempre por data de postagem
+                    const response = await api.get(`/hub/latest?limit=${limit}`);
+                    const posts: HubLatestPost[] = response.data;
+                    setItems(posts.map((p) => ({
+                        key: p.post_id,
+                        href: p.slug ? `/${p.slug}` : "#",
+                        image_id: p.author_image_id,
+                        title: p.title,
+                        author: p.author_name ?? "",
+                    })));
+                } else {
+                    const response = await api.get("/specialist");
+                    const authors: AuthorType[] = response.data;
+                    setItems(
+                        authors
+                            .filter((a) => a.latest_post)
+                            .map((a) => ({
+                                key: a.autor_id,
+                                href: a.latest_post!.slug ? `/${a.latest_post!.slug}` : `/hub/${a.slug}`,
+                                image_id: a.image_id,
+                                title: a.latest_post!.title,
+                                author: a.name,
+                            }))
+                    );
+                }
             } catch (err) {
                 console.error("Erro ao carregar artigos do hub:", err);
             } finally {
@@ -41,7 +83,7 @@ export default function HomeArticles() {
         };
 
         load();
-    }, []);
+    }, [limit]);
 
     if (loading) {
         return (
@@ -52,9 +94,7 @@ export default function HomeArticles() {
         );
     }
 
-    const authorsWithPost = authors.filter((a) => a.latest_post);
-
-    if (authorsWithPost.length === 0) {
+    if (items.length === 0) {
         return (
             <div className="col-12 text-center">
                 <p>Nenhum artigo encontrado.</p>
@@ -64,36 +104,25 @@ export default function HomeArticles() {
 
     return (
         <div className="row hub-articles-list">
-            {authorsWithPost.map((author) => {
-                const post = author.latest_post!;
+            {items.map((item) => (
+                <div className="col-6 col-md-3 mb-4" key={item.key}>
+                    <Link href={item.href} className="text-decoration-none hub-article-card">
+                        <div className="hub-article-photo">
+                            <Image image_id={item.image_id} ratio="1/1" />
+                        </div>
 
-                return (
-                    <div
-                        className="col-6 col-md-4 col-lg-3 col-xl-2 mb-4"
-                        key={author.autor_id}
-                    >
-                        <Link
-                            href={post.slug ? `/${post.slug}` : `/hub/${author.slug}`}
-                            className="text-decoration-none hub-article-card"
-                        >
-                            <div className="hub-article-photo">
-                                <Image
-                                    image_id={author.image_id}
-                                    ratio="1/1"
-                                />
-                            </div>
-
+                        <div className="hub-article-text">
                             <h3 className="post-list-title hub-article-title">
-                                {post.title}
+                                {item.title}
                             </h3>
 
                             <p className="hub-article-author">
-                                {author.name}
+                                {item.author}
                             </p>
-                        </Link>
-                    </div>
-                );
-            })}
+                        </div>
+                    </Link>
+                </div>
+            ))}
         </div>
     );
 }

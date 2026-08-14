@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import PostCategory from "@/screens/Post/Category";
 import { fetchPostsList } from "@/lib/category";
 
-export const revalidate = 60;
+export const revalidate = 30;
 
 const SITE_URL = "https://www.moveisdevalor.com.br";
 

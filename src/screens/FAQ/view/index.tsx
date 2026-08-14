@@ -117,7 +117,7 @@ export default function PublicationPage() {
 				</h1>
 
 				<div className="d-flex gap-2">
-					<a href="#" className="btn">Assine</a>
+					<a href="/loja?category=4" className="btn">Assine</a>
 					<a href="/anuncie" className="btn">Anuncie</a>
 				</div>
 			</div>

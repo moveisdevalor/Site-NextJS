@@ -1,6 +1,6 @@
 // =====================================================================
 // Server-side: payload da home (GET /home).
-// O endpoint retorna 7 buckets de categorias (cat1..cat7).
+// O endpoint retorna 8 buckets de categorias (cat1..cat8).
 // =====================================================================
 
 import { apiGetOrNull } from "./api-server";
@@ -22,6 +22,7 @@ export type HomeData = {
 	cat5: { posts: HomePost[] };
 	cat6: { posts: HomePost[] };
 	cat7: { posts: HomePost[] };
+	cat8: { posts: HomePost[] };
 };
 
 const HOME_REVALIDATE = 60;

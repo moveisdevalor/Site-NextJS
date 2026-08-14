@@ -2,64 +2,31 @@
 
 import AOS from 'aos';
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useMenuType } from "@/layout/menu-context";
+import { api } from "../../api";
+import PostThumbnail from "../../components/Image/image";
+import type { Product } from "@/lib/products";
+import { formatPrice } from "@/lib/products";
 import "./styles.css";
 
-type CourseType = {
-	id: string;
-	name: string;
-	logo: string;
-	logoWidth?: number;
-	description: string;
-	url: string;
-};
+// id da categoria "Cursos" em ecommerce_category
+const CURSOS_CATEGORY_ID = 3;
 
-const COURSES: CourseType[] = [
-	{
-		id: "mestre-marceneiro",
-		name: "Mestre Marceneiro",
-		logo: "http://www.mestremarceneiro.com.br/theme/default/img/logo.png",
-		description:
-			"Para profissionais da marcenaria que precisam controlar custos, posicionar produtos no mercado com qualidade e obter o melhor custo-benefício. Capacitação é o caminho para uma marcenaria lucrativa.",
-		url: "/curso/mestre-marceneiro",
-	},
-	{
-		id: "super-gerente",
-		name: "Super Gerente",
-		logo: "https://www.cursosupergerente.com.br/theme/default/img/logo-supergerente.png",
-		logoWidth: 200,
-		description:
-			"Uma função que exige agilidade, criatividade, persistência e capacitação constante. Formação dedicada ao gerente de loja de móveis e eletrodomésticos — papel fundamental e pouco endereçado pelo ensino tradicional.",
-		url: "/curso/super-gerente",
-	},
-	{
-		id: "venda-planejados",
-		name: "Venda de Planejados em 6 Passos",
-		logo: "https://www.vendadeplanejados.com.br/theme/default/img/logo.png",
-		logoWidth: 180,
-		description:
-			"Como recuperar a imagem do setor de planejados e converter mais vendas. Metodologia em 6 passos para vendedores que precisam superar objeções e fechar contratos com segurança.",
-		url: "/curso/venda-de-planejados",
-	},
-	{
-		id: "trilha-esg",
-		name: "Trilha de Aprendizado ESG",
-		logo: "https://trilhadeaprendizadoesg.com.br/img/logo.png",
-		logoWidth: 200,
-		description:
-			"Pauta ESG aplicada ao setor moveleiro: governança, práticas ambientais e impacto social. Formação para quem precisa transformar exigências de mercado em diferencial competitivo.",
-		url: "https://trilhadeaprendizadoesg.com.br/",
-	},
-	{
-		id: "expert-colchao",
-		name: "Expert em Venda de Colchão",
-		logo: "https://www.expertemvendadecolchao.com.br/theme/hvac/img/logo.png",
-		logoWidth: 200,
-		description:
-			"Técnica de venda especializada para o segmento colchoeiro. Argumentos, sondagem, materiais e fechamento — para vendedores que querem se destacar em um produto de alta consideração.",
-		url: "https://www.expertemvendadecolchao.com.br/",
-	},
-];
+function stripHtml(html: string, maxLen = 160): string {
+	let text: string;
+
+	if (typeof window !== "undefined") {
+		const div = document.createElement("div");
+		div.innerHTML = html;
+		text = div.textContent || "";
+	} else {
+		text = html.replace(/<[^>]*>/g, " ");
+	}
+
+	text = text.replace(/\s+/g, " ").trim();
+	return text.length > maxLen ? `${text.slice(0, maxLen).trim()}…` : text;
+}
 
 export default function Index() {
 
@@ -68,9 +35,21 @@ export default function Index() {
 	const [login, setLogin] = useState({ email: "", password: "" });
 	const [loginLoading, setLoginLoading] = useState(false);
 	const [loginMessage, setLoginMessage] = useState("");
+	const [courses, setCourses] = useState<Product[]>([]);
 
 	useEffect(() => {
 		AOS.init({ duration: 1200 });
+	}, []);
+
+	useEffect(() => {
+		api.get<{ data?: Product[] }>("/products", {
+			params: { category: CURSOS_CATEGORY_ID, limit: 24 },
+		})
+			.then((res) => setCourses(res.data?.data ?? []))
+			.catch((err) => {
+				console.error("Erro ao buscar cursos:", err);
+				setCourses([]);
+			});
 	}, []);
 
 	useEffect(() => {
@@ -128,8 +107,6 @@ export default function Index() {
 		}
 	};
 
-	const isExternal = (url: string) => /^https?:\/\//i.test(url);
-
 	return (
 		<>
 
@@ -160,7 +137,7 @@ export default function Index() {
 
 								<div className="course-stats">
 									<div className="course-info">
-										<h2 className="number">5</h2>
+										<h2 className="number">{courses.length}</h2>
 										<p className="info">Cursos</p>
 									</div>
 
@@ -253,46 +230,46 @@ export default function Index() {
 			</div>
 
 			{/* CARDS DE CURSOS */}
-			<div className="section py-5 course-page d-none">
-				<div className="container">
+			{courses.length > 0 && (
+				<div className="section py-5 course-page">
+					<div className="container">
 
-					<h2 className="course-section-title">Nossos cursos</h2>
-					<p className="course-section-subtitle">
-						Trilhas pensadas para os diferentes papéis do setor — da indústria ao
-						varejo, da gestão à produção.
-					</p>
+						<h2 className="course-section-title">Nossos cursos</h2>
+						<p className="course-section-subtitle">
+							Trilhas pensadas para os diferentes papéis do setor — da indústria ao
+							varejo, da gestão à produção.
+						</p>
 
-					<div className="courses-grid">
-						{COURSES.map((course) => {
-							const external = isExternal(course.url);
-							return (
-								<article key={course.id} className="course-card">
-									<div className="course-card-logo">
-										<img
-											src={course.logo}
-											alt={course.name}
-											style={course.logoWidth ? { width: course.logoWidth } : undefined}
+						<div className="courses-grid">
+							{courses.map((course) => (
+								<Link
+									key={course.id}
+									href={`/loja/${course.id}`}
+									className="course-card"
+								>
+									<div className="course-card-cover">
+										<PostThumbnail
+											image_id={course.cover_image_id || Number(course.image_id) || null}
+											ratio="16/10"
 										/>
 									</div>
 									<div className="course-card-body">
 										<h3 className="course-card-title">{course.name}</h3>
-										<p className="course-card-text">{course.description}</p>
-										<a
-											href={course.url}
-											className="mv-btn-outline course-card-cta"
-											target={external ? "_blank" : undefined}
-											rel={external ? "noopener noreferrer" : undefined}
-										>
+										<p className="course-card-text">{stripHtml(course.description)}</p>
+										{formatPrice(course.value) && (
+											<p className="course-card-price">{formatPrice(course.value)}</p>
+										)}
+										<span className="mv-btn-outline course-card-cta">
 											Saiba mais
-										</a>
+										</span>
 									</div>
-								</article>
-							);
-						})}
-					</div>
+								</Link>
+							))}
+						</div>
 
+					</div>
 				</div>
-			</div>
+			)}
 		</>
 	);
 }

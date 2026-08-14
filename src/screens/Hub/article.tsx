@@ -378,7 +378,7 @@ export default function PostEdit({
                     setContent(
                         postData.content?.replace(
                             /http:\/\/localhost:5173\/images\//g,
-                            "https://apiv2.moveisdevalor.com.br/images/"
+                            "https://apiv2.moveisdevalor.com.br/upload/images/"
                         ) ?? ""
                     );
 

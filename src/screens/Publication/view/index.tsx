@@ -38,6 +38,12 @@ function getRevistaTipo(fn_revista: string | number | null | undefined): string 
 	}
 }
 
+// categorias da loja (ecommerce_category): 2 = Anuário, 4 = Revista
+function getAssineLink(fn_revista: string | number | null | undefined): string {
+	const categoryId = String(fn_revista) === "6" ? 2 : 4;
+	return `/loja?category=${categoryId}`;
+}
+
 export default function PublicationPage({
 	initialPublication = null,
 	initialRelated = [],
@@ -174,7 +180,9 @@ export default function PublicationPage({
 						{getRevistaTipo(current.fn_revista)} - Edição {current.fn_edicao}
 					</h1>
 					<div className="d-flex gap-2">
-						<a href="/assine" className="btn">Assine</a>
+						<a href={getAssineLink(current.fn_revista)} className="btn">
+							{String(current.fn_revista) === "6" ? "Comprar" : "Assine"}
+						</a>
 						<a href="/anuncie" className="btn">Anuncie</a>
 					</div>
 				</div>

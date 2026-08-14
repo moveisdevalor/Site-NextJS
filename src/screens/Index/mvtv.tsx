@@ -27,7 +27,7 @@ export default function VideoSection() {
             setLoading(true);
 
             const { data } = await api.get(
-                "/videos?status=1&fn_programa_id=29&limit=4"
+                "/videos?status=1&fn_programa_id=29&limit=5"
             );
 
             const list = data?.videos ?? data ?? [];

@@ -3,6 +3,7 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 
 import Providers from "./providers";
+import AnalyticsPageview from "./analytics-pageview";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,6 +24,9 @@ export const metadata: Metadata = {
 	},
 	verification: {
 		google: "QBgXBYHB6N6PbpWTABq0lpH2o79EpPZMJ93aoz1Bmvg",
+	},
+	facebook: {
+		appId: "1322363489178171",
 	},
 	openGraph: {
 		type: "website",
@@ -45,6 +49,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="pt-br">
 			<head>
+				{/*
+					Shim: Safari iOS antigo / modo privado lanca SecurityError ao
+					acessar localStorage. Troca por stub em memoria se falhar.
+					Inline e bloqueante: roda antes de qualquer outro script.
+				*/}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){function m(){var d={};return{getItem:function(k){return Object.prototype.hasOwnProperty.call(d,k)?d[k]:null;},setItem:function(k,v){d[k]=String(v);},removeItem:function(k){delete d[k];},clear:function(){d={};},key:function(i){return Object.keys(d)[i]||null;},get length(){return Object.keys(d).length;}};}function c(n){try{var s=window[n];s.setItem('__mv_t','1');s.removeItem('__mv_t');return true;}catch(e){return false;}}if(!c('localStorage')){try{Object.defineProperty(window,'localStorage',{configurable:true,value:m()});}catch(e){}}if(!c('sessionStorage')){try{Object.defineProperty(window,'sessionStorage',{configurable:true,value:m()});}catch(e){}}})();`,
+					}}
+				/>
 				<link
 					rel="preconnect"
 					href="https://fonts.googleapis.com"
@@ -65,6 +79,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			</head>
 			<body>
 				<Providers>{children}</Providers>
+
+				<AnalyticsPageview />
 
 				{/* Google Ads */}
 				<Script
@@ -98,7 +114,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
-					gtag('config', 'G-6JKGP8PMLX');
+					gtag('config', 'G-6JKGP8PMLX', { send_page_view: false });
 					`}
 				</Script>
 

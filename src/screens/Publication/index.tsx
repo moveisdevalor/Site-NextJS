@@ -203,7 +203,7 @@ export default function Publications({
 								</p>
 
 								<div className="publications-hero-actions">
-									<a href="/assine" className="mv-btn">
+									<a href="/loja?category=4" className="mv-btn">
 										Assine
 									</a>
 

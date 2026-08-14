@@ -134,7 +134,7 @@ export default function Publications() {
                             <p>A Móveis de Valor é mais que uma revista – é um hub de inteligência que conecta indústria, varejo e estratégia no setor moveleiro.</p>
                             <p>Traduz movimentos de mercado em decisão, antecipa tendências e dá voz a quem move a cadeia produtiva.</p>
                             <p>É onde o setor se informa, se posiciona e identifica caminhos para onde ir.</p>
-                            <a href="/assine" className="btn m-3" data-aos="zoom-in" data-aos-delay="400">
+                            <a href="/loja?category=4" className="btn m-3" data-aos="zoom-in" data-aos-delay="400">
                                 Assine <IoIosArrowForward />
                             </a>
                             <a href="/anuncie" className="btn m-3" data-aos="zoom-in" data-aos-delay="400">

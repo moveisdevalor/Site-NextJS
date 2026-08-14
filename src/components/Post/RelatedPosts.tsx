@@ -100,7 +100,7 @@ export default function RelatedPosts({ postId, limit = 6 }: Props) {
                             <Link href={`/${post.slug}?source=related`} className="text-decoration-none">
                                 <div className="row">
                                     <div className="col-5">
-                                        <ImageLink image={post.image} />
+                                        <ImageLink image={post.image} legend={post.title} />
 
                                     </div>
                                     <div className="col-7 m-0 p-0">

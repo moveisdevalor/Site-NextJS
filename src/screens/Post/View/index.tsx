@@ -136,10 +136,14 @@ function formatScheduledDate(
 type PostViewProps = {
     initialPost?: PostType | null;
     initialAuthorName?: string;
+    // URL/legenda da imagem destaque ja resolvidas no servidor,
+    // pra imagem sair no HTML inicial (LCP / indexacao).
+    initialImage?: { url: string; legend: string } | null;
 };
 
 export default function PostEdit({
     initialPost = null,
+    initialImage = null,
 }: PostViewProps = {}) {
 
     const params = useParams<{ id: string }>();
@@ -340,7 +344,7 @@ export default function PostEdit({
                     setContent(
                         data.content?.replace(
                             /http:\/\/localhost:5173\/images\//g,
-                            "https://apiv2.moveisdevalor.com.br/images/"
+                            "https://apiv2.moveisdevalor.com.br/upload/images/"
                         ) ?? ""
                     );
 
@@ -400,7 +404,7 @@ export default function PostEdit({
                     setContent(
                         data.content?.replace(
                             /http:\/\/localhost:5173\/images\//g,
-                            "https://apiv2.moveisdevalor.com.br/images/"
+                            "https://apiv2.moveisdevalor.com.br/upload/images/"
                         ) ?? ""
                     );
 
@@ -743,10 +747,23 @@ export default function PostEdit({
                                             image_id={
                                                 mainImageId
                                             }
+                                            // URL resolvida no servidor: so vale pra
+                                            // imagem original do post (nao pra galeria).
+                                            url={
+                                                mainImageId === initialPost?.image_id
+                                                    ? initialImage?.url
+                                                    : undefined
+                                            }
+                                            legend={
+                                                mainImageId === initialPost?.image_id
+                                                    ? initialImage?.legend
+                                                    : undefined
+                                            }
                                             ratio="10/6"
                                             fit="cover"
                                             showLegend
                                             alt={title}
+                                            priority
                                         />
 
                                         {galleryImages.length >

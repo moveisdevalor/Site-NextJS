@@ -82,12 +82,9 @@ export default function Publications() {
 							<p><strong>Se você quer crescer, inovar e se destacar, este é o seu lugar.</strong></p>
 
 							<div className="d-flex gap-2 mt-4 mb-5 flex-wrap">
-								<a
-									href="https://api.whatsapp.com/send?phone=5541999129877&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+assinatura+da+revista&type=phone_number&app_absent=0"
-									className="mv-btn"
-								>
+								<Link href="/loja?category=4" className="mv-btn">
 									Assine agora
-								</a>
+								</Link>
 							</div>
 						</div>
 						<div className="col-lg-4 offset-lg-1 col-12">

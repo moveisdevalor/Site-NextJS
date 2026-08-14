@@ -14,7 +14,7 @@
     --hub-ink: #1d1d1f;
     --hub-muted: #5a6450;
     --hub-line: #e8ebe1;
-    --hub-bg: #ffffff;
+    --hub-bg: #f8f9fa;
     --hub-gradient: linear-gradient(36deg, #2A7B9B 0%, #122e5f 100%);
     --hub-font: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
     --hub-radius: 10.375rem;
@@ -29,6 +29,7 @@
 
 .hub {
     color: var(--hub-ink);
+    background: var(--hub-bg);
 }
 
 .hub p {
@@ -70,6 +71,11 @@
     color: var(--hub-muted);
     font-size: 1.05rem;
     line-height: 1.65;
+}
+
+.hub-about-text {
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
 }
 
 /* aliases — compatibilidade com páginas existentes (specialist/article) */

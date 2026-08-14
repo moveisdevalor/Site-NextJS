@@ -15,7 +15,7 @@ export type Video = {
 	slug?: string | null;
 };
 
-const VIDEOS_REVALIDATE = 300;
+const VIDEOS_REVALIDATE = 30;
 
 export async function fetchVideos(): Promise<Video[]> {
 	const res = await apiGetOrNull<{ videos?: Video[] } | Video[]>(

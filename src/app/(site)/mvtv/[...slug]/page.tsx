@@ -9,7 +9,7 @@ import {
 	type Video,
 } from "@/lib/videos";
 
-export const revalidate = 300;
+export const revalidate = 30;
 
 const SITE_URL = "https://www.moveisdevalor.com.br";
 const IMAGES_URL = "https://apiv2.moveisdevalor.com.br/images";

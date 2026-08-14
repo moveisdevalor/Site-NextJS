@@ -19,7 +19,7 @@ export default function LegacyRedirect() {
 		const redirectMap: Record<string, string> = {
 			"/search.php": "/noticias",
 			"/feiras-e-eventos.php": "/feiras-e-eventos",
-			"/ecommerce.php": "/assine",
+			"/ecommerce.php": "/loja",
 			"/mvtv.php": "/mvtv",
 			"/revista.php": "/publicacoes",
 		};

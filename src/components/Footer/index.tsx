@@ -7,11 +7,13 @@ export default function Footer() {
 				<div className="row g-4">
 
 					<div className="col-12 col-lg-3 footer-brand text-center text-lg-start">
-						<img
-							src="https://www.moveisdevalor.com.br/assets/logo-moveis-de-valor-branca.png"
-							width="190"
-							alt="Móveis de Valor"
-						/>
+						<a href="https://www.moveisdevalor.com.br">
+							<img
+								src="https://www.moveisdevalor.com.br/assets/logo-moveis-de-valor-branca.png"
+								width="190"
+								alt="Móveis de Valor"
+							/>
+						</a>
 					</div>
 
 					<div className="col-6 col-md-4 col-lg-3">

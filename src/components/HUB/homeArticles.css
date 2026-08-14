@@ -5,9 +5,10 @@
 
 .hub-article-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
+    text-align: left;
+    gap: 14px;
     padding: 10px;
     transition: transform 0.2s ease;
 }
@@ -17,11 +18,11 @@
 }
 
 .hub-article-photo {
-    width: 90px;
-    height: 90px;
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 12px;
     border: 2px solid #fff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
@@ -34,6 +35,10 @@
     width: 100%;
     height: auto !important;
     display: block;
+}
+
+.hub-article-text {
+    min-width: 0;
 }
 
 .hub-article-title {
@@ -53,7 +58,7 @@
 
 @media (max-width: 575px) {
     .hub-article-photo {
-        width: 70px;
-        height: 70px;
+        width: 52px;
+        height: 52px;
     }
 }

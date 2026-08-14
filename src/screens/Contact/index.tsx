@@ -1,9 +1,7 @@
 "use client";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import {LuMail, LuMap, LuPhone} from "react-icons/lu";
+import { useState } from "react";
+import {LuClock, LuMail, LuMap, LuPhone} from "react-icons/lu";
 import { api } from "../../api";
 import './contact.css';
 
@@ -19,10 +17,6 @@ export default function Contact() {
 	const [form, setForm] = useState(INITIAL_FORM);
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState("");
-
-	useEffect(() => {
-		AOS.init({ duration: 1200 });
-	}, []);
 
 	function handleChange(
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -64,15 +58,15 @@ export default function Contact() {
 
 			<div className="contact-container">
 				{/* HERO */}
-				<div className="contact-hero" data-aos="fade-right">
+				<div className="contact-hero">
 					<p>
 						Ficou com dúvida?
 					</p>
 					<h1>Entre em contato</h1>
 
 					<p>
-						Receba em primeira mão conteúdos exclusivos, lançamentos,
-						promoções e atualizações importantes do setor moveleiro.
+						Nossa equipe está pronta para atender você. Preencha o
+						formulário ao lado ou fale diretamente pelos canais abaixo.
 					</p>
 
 					<div className="mail d-flex pt-4">
@@ -81,8 +75,13 @@ export default function Contact() {
 					</div>
 					<div className="phone d-flex pt-2">
 						<LuPhone />
-						<p>+55 41 99994-0090</p>
+						<p>+55 41 99912-9877</p>
 					</div>
+					<div className="phone d-flex pt-2">
+						<LuPhone />
+						<p>+55 41 99994-0090 (Jornalismo)</p>
+					</div>
+
 					<div className="adress d-flex pt-2">
 						<LuMap />
 						<p>
@@ -91,12 +90,18 @@ export default function Contact() {
 						</p>
 					</div>
 
-
+					<div className="hours d-flex pt-2">
+						<LuClock />
+						<p>
+							Atendimento: segunda-feira a sexta-feira<br/>
+							Das 9h às 12h30 e das 13h30 às 17h
+						</p>
+					</div>
 
 				</div>
 
 				{/* FORM */}
-				<div className="contact-form-card" data-aos="fade-left">
+				<div className="contact-form-card">
 					<form onSubmit={handleSubmit}>
 						<input
 							type="text"

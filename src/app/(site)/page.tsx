@@ -10,16 +10,16 @@ const SITE_URL = "https://www.moveisdevalor.com.br";
 export const metadata: Metadata = {
 	title: {
 		absolute:
-			"Móveis de Valor — onde o setor moveleiro ganha voz há 25 anos",
+			"Móveis de Valor — o setor moveleiro ganha voz há 25 anos",
 	},
 	description:
-		"As principais notícias, tendências e análises do setor moveleiro brasileiro.",
+		"As principais notícias, tendências e análises do setor moveleiro brasileiro. Cobertura de indústria, marcenaria, mercado, feiras e negócios há 25 anos.",
 	alternates: { canonical: SITE_URL },
 	openGraph: {
 		type: "website",
 		title: "Móveis de Valor",
 		description:
-			"As principais notícias, tendências e análises do setor moveleiro brasileiro.",
+			"As principais notícias, tendências e análises do setor moveleiro brasileiro. Cobertura de indústria, marcenaria, mercado, feiras e negócios há 25 anos.",
 		url: SITE_URL,
 		siteName: "Móveis de Valor",
 		locale: "pt_BR",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Móveis de Valor",
 		description:
-			"As principais notícias, tendências e análises do setor moveleiro brasileiro.",
+			"As principais notícias, tendências e análises do setor moveleiro brasileiro. Cobertura de indústria, marcenaria, mercado, feiras e negócios há 25 anos.",
 	},
 };
 

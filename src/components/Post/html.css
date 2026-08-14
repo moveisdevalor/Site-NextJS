@@ -380,3 +380,60 @@ blockquote {
     max-width: 100% !important;
     object-fit: contain !important;
 }
+
+/* =================================================================
+   Tabelas (plugin Table do CKEditor)
+   Replica dash/node_modules/.../@ckeditor/ckeditor5-table/theme/table.css,
+   que só se aplica dentro de .ck-content — fora do editor precisa
+   ser recriado aqui manualmente.
+   ================================================================= */
+
+.html-content .table,
+.html-content-article .table {
+    display: table;
+    margin: 0.9em auto;
+}
+
+.html-content table.table,
+.html-content figure.table > table,
+.html-content-article table.table,
+.html-content-article figure.table > table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px double hsl(0, 0%, 70%);
+}
+
+.html-content .table th,
+.html-content-article .table th {
+    font-weight: 700;
+    background: #8b9754;
+    color: #ffffff;
+}
+
+.html-content .table td,
+.html-content .table th,
+.html-content-article .table td,
+.html-content-article .table th {
+    min-width: 2em;
+    padding: 0.4em;
+    border: 1px solid hsl(0, 0%, 75%);
+    overflow-wrap: break-word;
+}
+
+.html-content .table .ck-table-resized,
+.html-content-article .table .ck-table-resized {
+    table-layout: fixed;
+}
+
+.html-content .table > figcaption,
+.html-content-article .table > figcaption {
+    display: table-caption;
+    caption-side: top;
+    text-align: center;
+    color: hsl(0, 0%, 20%);
+    background-color: hsl(0, 0%, 97%);
+    padding: 0.6em;
+    font-size: 0.75em;
+}

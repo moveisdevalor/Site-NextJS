@@ -32,7 +32,7 @@ type ApiResponse = {
 	};
 };
 
-const PUBLICATIONS_REVALIDATE = 600;
+const PUBLICATIONS_REVALIDATE = 60;
 
 export async function fetchInitialPublications(): Promise<Publication[]> {
 	const results = await Promise.all(

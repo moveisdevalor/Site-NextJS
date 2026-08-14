@@ -31,6 +31,7 @@ type HomeData = {
     cat5: { posts: PostType[] };
     cat6: { posts: PostType[] };
     cat7: { posts: PostType[] };
+    cat8: { posts: PostType[] };
 };
 
 type IndexProps = {
@@ -134,6 +135,7 @@ export function Index({ initialData = null }: IndexProps = {}) {
     const cat5 = homeData?.cat5?.posts ?? [];
     const cat6 = homeData?.cat6?.posts ?? [];
     const cat7 = homeData?.cat7?.posts ?? [];
+    const cat8 = homeData?.cat8?.posts ?? [];
 
     // ==========================
     // RENDER
@@ -171,7 +173,7 @@ export function Index({ initialData = null }: IndexProps = {}) {
                                         <div className="col-12 col-md-7 order-0 order-md-1 mb-3 position-relative">
                                             <div className="mask"></div>
                                             <Link href={`/${item.slug}`} className="text-decoration-none">
-                                                <ImageLink image={item.image} />
+                                                <ImageLink image={item.image} legend={item.title} />
                                             </Link>
                                         </div>
                                         <div className="col-12 col-md-5 d-block align-content-center order-1 order-md-1 text">
@@ -212,6 +214,18 @@ export function Index({ initialData = null }: IndexProps = {}) {
             </div>
 
 
+            <div className="section partners hub-highlight p-50">
+                <div className="container">
+                    <div className="hub-highlight-header">
+                        <a href="/hub" className="hub-highlight-label">Hub</a>
+                        <span className="hub-highlight-subtitle">Artigos mais recentes</span>
+                    </div>
+                    <div className="row">
+                        <HubAuthors limit={4} />
+                    </div>
+                </div>
+            </div>
+
             {/* INDÚSTRIA */}
             <PostSection title="Indústria" posts={cat3} className="section business p-50" />
 
@@ -227,6 +241,8 @@ export function Index({ initialData = null }: IndexProps = {}) {
 
             {/* COMÉRCIO */}
             <PostSection title="Comércio" posts={cat2} />
+
+            <MattressSection title="Colchões" posts={cat8} />
 
             <PostSection title="Artigos" posts={cat6} />
 
@@ -300,7 +316,7 @@ function PostSection({
                         {posts[0] && (
                             <Link href={`/${posts[0].slug}`} className="text-decoration-none post-featured">
                                 <div data-aos="fade-right" data-aos-delay="200">
-                                    <ImageLink image={posts[0].image} />
+                                    <ImageLink image={posts[0].image} legend={posts[0].title} />
                                 </div>
                                 <h3 data-aos="fade-right" data-aos-delay="200" className="mt-3 mb-1 post-list-title-dest">
                                     {posts[0].title}
@@ -317,9 +333,70 @@ function PostSection({
                                     <Link href={`/${item.slug}`} className="text-decoration-none post-mini">
                                         <div className="post-mini-grid">
                                             <div className="post-mini-image" data-aos="fade-right" data-aos-delay="200">
-                                                <ImageLink image={item.image} />
+                                                <ImageLink image={item.image} legend={item.title} />
                                             </div>
                                             <h3 data-aos="fade-right" data-aos-delay="200" className="post-list-title post-mini-title">
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ==========================
+// SEÇÃO COLCHÕES
+// 1 post grande + 6 pequenos
+// ==========================
+
+function MattressSection({
+                              title,
+                              posts,
+                              className = "section industry p-50"
+                          }: {
+    title: string;
+    posts: PostType[];
+    className?: string;
+}) {
+    return (
+        <div className={className}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12" data-aos="fade-right">
+                        <h2 className="section-title mb-4"><strong>{title}</strong></h2>
+                    </div>
+
+                    {/* post destaque */}
+                    <div className="col-12 col-md-5 mb-4 mb-md-0">
+                        {posts[0] && (
+                            <Link href={`/${posts[0].slug}`} className="text-decoration-none post-featured">
+                                <div data-aos="fade-right" data-aos-delay="200">
+                                    <ImageLink image={posts[0].image} legend={posts[0].title} />
+                                </div>
+                                <h3 data-aos="fade-right" data-aos-delay="200" className="mt-3 mb-1 post-list-title-dest">
+                                    {posts[0].title}
+                                </h3>
+                            </Link>
+                        )}
+                    </div>
+
+                    {/* grid de posts pequenos */}
+                    <div className="col-12 col-md-7">
+                        <div className="row g-3">
+                            {posts.slice(1, 7).map((item) => (
+                                <div className="col-6 col-lg-4" key={item.post_id}>
+                                    <Link href={`/${item.slug}`} className="text-decoration-none post-mini">
+                                        <div className="post-mini-stack">
+                                            <div data-aos="fade-right" data-aos-delay="200">
+                                                <ImageLink image={item.image} legend={item.title} />
+                                            </div>
+                                            <h3 data-aos="fade-right" data-aos-delay="200" className="post-list-title post-mini-title mt-2">
                                                 {item.title}
                                             </h3>
                                         </div>

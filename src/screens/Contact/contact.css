@@ -134,9 +134,17 @@
     color: #8b9754;
 }
 
+.contact-page .mail,
+.contact-page .phone,
+.contact-page .adress,
+.contact-page .hours {
+    align-items: flex-start;
+}
+
 .contact-page .mail svg,
 .contact-page .phone svg,
-.contact-page .adress svg {
+.contact-page .adress svg,
+.contact-page .hours svg {
     margin-top: 2px;
     margin-right: 10px;
     font-size: 20px;
@@ -146,9 +154,11 @@
 
 .contact-page .mail p,
 .contact-page .phone p,
-.contact-page .adress p {
+.contact-page .adress p,
+.contact-page .hours p {
     color: #1d1d1f;
     margin: 0;
+    line-height: 1.5;
 }
 
 /* RESPONSIVO ------------------------------------------------------- */

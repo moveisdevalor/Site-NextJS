@@ -45,27 +45,27 @@ export type PostFetchResult =
 	| { kind: "redirect"; to: string }
 	| { kind: "notfound"; message?: string };
 
-const POST_REVALIDATE_SECONDS = 60;
+const POST_REVALIDATE_SECONDS = 30;
 
 function normalizeContent(html: string | null | undefined): string {
 	if (!html) return "";
 	return html.replace(
 		/http:\/\/localhost:5173\/images\//g,
-		"https://apiv2.moveisdevalor.com.br/images/",
+		"https://apiv2.moveisdevalor.com.br/upload/images/",
 	);
 }
 
 export async function fetchPostById(
 	id: string,
-	opts: { preview?: string | null } = {},
+	opts: { preview?: boolean } = {},
 ): Promise<PostFetchResult> {
-	const qs = opts.preview ? `?preview=${encodeURIComponent(opts.preview)}` : "";
+	const qs = opts.preview ? "?preview=true" : "";
 
 	let payload: RawApiResponse;
 
 	try {
 		payload = await apiGet<RawApiResponse>(`/noticia/${id}${qs}`, {
-			revalidate: POST_REVALIDATE_SECONDS,
+			revalidate: opts.preview ? 0 : POST_REVALIDATE_SECONDS,
 			tags: [`post:${id}`],
 		});
 	} catch (e) {
@@ -100,14 +100,14 @@ export async function fetchPostById(
 
 export async function fetchArticleById(
 	id: string,
-	opts: { preview?: string | null } = {},
+	opts: { preview?: boolean } = {},
 ): Promise<PostFetchResult> {
-	const qs = opts.preview ? `?preview=${encodeURIComponent(opts.preview)}` : "";
+	const qs = opts.preview ? "?preview=true" : "";
 
 	let payload: RawApiResponse;
 	try {
 		payload = await apiGet<RawApiResponse>(`/artigo/${id}${qs}`, {
-			revalidate: POST_REVALIDATE_SECONDS,
+			revalidate: opts.preview ? 0 : POST_REVALIDATE_SECONDS,
 			tags: [`article:${id}`],
 		});
 	} catch (e) {
@@ -142,4 +142,15 @@ export async function fetchAuthorName(authorId: string | null | undefined): Prom
 		tags: [`author:${authorId}`],
 	});
 	return author?.name ?? "";
+}
+
+export async function fetchAuthorMeta(
+	authorId: string | null | undefined,
+): Promise<{ name: string; image_id: number | null }> {
+	if (!authorId) return { name: "", image_id: null };
+	const author = await apiGetOrNull<{ name?: string; image_id?: number }>(`/author/${authorId}`, {
+		revalidate: 3600,
+		tags: [`author:${authorId}`],
+	});
+	return { name: author?.name ?? "", image_id: author?.image_id ?? null };
 }

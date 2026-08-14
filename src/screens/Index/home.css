@@ -81,6 +81,10 @@
     line-height: 1.3;
 }
 
+.post-mini-stack .post-mini-title {
+    font-size: .8rem;
+}
+
 .post-featured .post-list-title-dest {
     line-height: 1.3;
 }
@@ -101,7 +105,7 @@
 }
 
 .emphasis .image-wrapper {
-    z-index: -9;
+    z-index: 9;
 }
 
 .emphasis .text {
@@ -497,3 +501,58 @@
         grid-template-columns: 4fr 8fr;
     }
 }
+
+/* HOME — HUB (fundo verde) ----------------------------------------- */
+
+.hub-highlight.p-50 {
+    padding-top: 24px !important;
+    padding-bottom: 4px !important;
+}
+
+.hub-highlight {
+    background: #f8f9fa;
+}
+
+.hub-highlight-header {
+    display: flex;
+    align-items: baseline;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
+.hub-highlight-label {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding-bottom: .6rem;
+    position: relative;
+}
+
+.hub-highlight-subtitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    padding-bottom: .6rem;
+}
+
+.hub-highlight-label::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--color-primary);
+    margin-top: .6rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.hub-highlight .hub-articles-list {
+    margin-top: 14px;
+}
+

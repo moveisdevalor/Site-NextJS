@@ -11,6 +11,20 @@ export const metadata: Metadata = {
 	description:
 		"Tire suas dúvidas sobre a Móveis de Valor: publicações, eventos, newsletter e serviços para o setor moveleiro.",
 	alternates: { canonical: `${SITE_URL}/faq` },
+	openGraph: {
+		type: "website",
+		title: "Perguntas Frequentes",
+		description:
+			"Tire suas dúvidas sobre a Móveis de Valor: publicações, eventos, newsletter e serviços para o setor moveleiro.",
+		url: `${SITE_URL}/faq`,
+		images: [{ url: `${SITE_URL}/assets/logo-moveis-de-valor.png` }],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Perguntas Frequentes",
+		description:
+			"Tire suas dúvidas sobre a Móveis de Valor: publicações, eventos, newsletter e serviços para o setor moveleiro.",
+	},
 };
 
 export default function FaqPage() {

@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import {
     LuCircleAlert,
@@ -73,10 +74,16 @@ const INITIAL_FORM = {
 
 export default function Register() {
 
+    const searchParams = useSearchParams();
+
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
-    const [form, setForm] = useState(INITIAL_FORM);
+    const [form, setForm] = useState(() => ({
+        ...INITIAL_FORM,
+        email: searchParams.get("email") || "",
+        authorized: searchParams.get("authorized") === "1" ? 1 : 0,
+    }));
 
     /*
     |--------------------------------------------------------------------------

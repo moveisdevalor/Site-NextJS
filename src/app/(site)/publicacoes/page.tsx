@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Publications from "@/screens/Publication";
 import { fetchInitialPublications } from "@/lib/publications";
 
-export const revalidate = 600;
+export const revalidate = 60;
 
 const SITE_URL = "https://www.moveisdevalor.com.br";
 
