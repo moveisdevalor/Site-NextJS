@@ -4,6 +4,7 @@ import { api } from "../../api";
 type Comment = {
     id: number;
     id_post: number;
+    parent_id: number | null;
     name: string;
     email: string;
     comment: string;
@@ -31,6 +32,9 @@ export default function Comments({ postId }: Props) {
     }>({ type: null, message: "" });
 
     const [sending, setSending] = useState(false);
+    const [replyTo, setReplyTo] = useState<Comment | null>(null);
+    const [replyForm, setReplyForm] = useState({ name: "", email: "", comment: "" });
+    const [sendingReply, setSendingReply] = useState(false);
 
     const fetchComments = async () => {
         try {
@@ -79,6 +83,7 @@ export default function Comments({ postId }: Props) {
                 name: form.name,
                 email: form.email,
                 comment: form.comment,
+                parent_id: null,
             });
 
             setForm({ name: "", email: "", comment: "" });
@@ -87,6 +92,8 @@ export default function Comments({ postId }: Props) {
                 type: "success",
                 message: "Comentário enviado! Ele será exibido após aprovação.",
             });
+
+            fetchComments();
 
         } catch (err) {
             console.error(err);
@@ -107,6 +114,153 @@ export default function Comments({ postId }: Props) {
             return () => clearTimeout(t);
         }
     }, [feedback]);
+
+    const replyBtnStyle: React.CSSProperties = {
+        display: "inline-flex",
+        alignItems: "center",
+        marginTop: "0.6rem",
+        padding: "0.3rem 0.85rem",
+        background: "#ffffff",
+        border: "1px solid #c2cc9a",
+        borderRadius: 999,
+        fontSize: "0.78rem",
+        fontWeight: 600,
+        lineHeight: 1,
+        color: "#5a6450",
+        textTransform: "uppercase",
+        letterSpacing: "0.04em",
+        cursor: "pointer",
+    };
+
+    const rootComments = comments.filter((c) => !c.parent_id);
+
+    const repliesMap = comments.reduce<Record<number, Comment[]>>((acc, c) => {
+        if (!c.parent_id) return acc;
+        (acc[c.parent_id] ||= []).push(c);
+        return acc;
+    }, {});
+
+    const handleReply = (c: Comment) => {
+        setReplyTo((prev) => (prev?.id === c.id ? null : c));
+        setReplyForm({ name: "", email: "", comment: "" });
+    };
+
+    const handleSubmitReply = async (e: React.FormEvent, parent: Comment) => {
+        e.preventDefault();
+
+        if (!replyForm.name.trim()) {
+            setFeedback({ type: "warning", message: "Informe seu nome" });
+            return;
+        }
+        if (!replyForm.email.includes("@")) {
+            setFeedback({ type: "warning", message: "Email inválido" });
+            return;
+        }
+        if (!replyForm.comment.trim()) {
+            setFeedback({ type: "warning", message: "Digite sua resposta" });
+            return;
+        }
+
+        try {
+            setSendingReply(true);
+
+            await api.post("/comments", {
+                id_post: postId,
+                name: replyForm.name,
+                email: replyForm.email,
+                comment: replyForm.comment,
+                parent_id: parent.id,
+            });
+
+            setReplyTo(null);
+            setReplyForm({ name: "", email: "", comment: "" });
+
+            setFeedback({
+                type: "success",
+                message: "Resposta enviada! Ela será exibida após aprovação.",
+            });
+
+            fetchComments();
+
+        } catch (err) {
+            console.error(err);
+            setFeedback({
+                type: "error",
+                message: "Erro ao enviar resposta. Tente novamente.",
+            });
+        } finally {
+            setSendingReply(false);
+        }
+    };
+
+    const renderComment = (c: Comment) => (
+        <>
+            <div className="comment-head">
+                <span className="comment-author">{c.name}</span>
+                <time className="comment-date">
+                    {new Date(c.date).toLocaleDateString()}{" "}
+                    {new Date(c.date).toLocaleTimeString()}
+                </time>
+            </div>
+            <p className="comment-body">{c.comment}</p>
+            <button
+                type="button"
+                className="comment-reply-btn"
+                style={replyBtnStyle}
+                onClick={() => handleReply(c)}
+            >
+                {replyTo?.id === c.id ? "Cancelar" : "Responder"}
+            </button>
+
+            {replyTo?.id === c.id && (
+                <form
+                    className="comment-reply-form"
+                    onSubmit={(e) => handleSubmitReply(e, c)}
+                >
+                    <div className="row g-2 mb-2">
+                        <div className="col-md-6">
+                            <input
+                                type="text"
+                                className="comments-input"
+                                placeholder="Seu nome"
+                                value={replyForm.name}
+                                onChange={(e) =>
+                                    setReplyForm((p) => ({ ...p, name: e.target.value }))
+                                }
+                            />
+                        </div>
+                        <div className="col-md-6">
+                            <input
+                                type="email"
+                                className="comments-input"
+                                placeholder="Seu email"
+                                value={replyForm.email}
+                                onChange={(e) =>
+                                    setReplyForm((p) => ({ ...p, email: e.target.value }))
+                                }
+                            />
+                        </div>
+                    </div>
+
+                    <textarea
+                        className="comments-input comments-textarea"
+                        rows={3}
+                        placeholder={`Respondendo a ${c.name}...`}
+                        value={replyForm.comment}
+                        onChange={(e) =>
+                            setReplyForm((p) => ({ ...p, comment: e.target.value }))
+                        }
+                    />
+
+                    <div className="text-end mt-2">
+                        <button type="submit" className="mv-btn" disabled={sendingReply}>
+                            {sendingReply ? "Enviando..." : "Enviar resposta"}
+                        </button>
+                    </div>
+                </form>
+            )}
+        </>
+    );
 
     return (
         <section className="comments-section">
@@ -179,16 +333,28 @@ export default function Comments({ postId }: Props) {
             )}
 
             <ul className="comments-list">
-                {comments.map((c) => (
+                {rootComments.map((c) => (
                     <li key={c.id} className="comment-item">
-                        <div className="comment-head">
-                            <span className="comment-author">{c.name}</span>
-                            <time className="comment-date">
-                                {new Date(c.date).toLocaleDateString()}{" "}
-                                {new Date(c.date).toLocaleTimeString()}
-                            </time>
-                        </div>
-                        <p className="comment-body">{c.comment}</p>
+                        {renderComment(c)}
+
+                        {(repliesMap[c.id] || []).length > 0 && (
+                            <ul
+                                className="comments-list comments-replies"
+                                style={{
+                                    marginTop: "0.75rem",
+                                    marginLeft: "2.25rem",
+                                    paddingLeft: "1.25rem",
+                                    borderLeft: "2px solid #e2e6d6",
+                                    listStyle: "none",
+                                }}
+                            >
+                                {repliesMap[c.id].map((r) => (
+                                    <li key={r.id} className="comment-item comment-reply">
+                                        {renderComment(r)}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </li>
                 ))}
             </ul>

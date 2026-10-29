@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 
 import ProductView from "@/screens/Store/view";
-import { fetchProductBySlug, formatPrice, type Product } from "@/lib/products";
+import { fetchProductById, fetchProductBySlug, formatPrice, type Product } from "@/lib/products";
 import { apiGetOrNull } from "@/lib/api-server";
 
 export const revalidate = 60;
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	}
 
 	const { product } = result;
-	const url = `${SITE_URL}/loja/${product.slug ?? slug}`;
+	const url = `${SITE_URL}/${product.slug ?? `loja/${slug}`}`;
 	const description = product.description?.slice(0, 160) || product.name;
 	const ogImage = await resolveOgImage(product);
 
@@ -66,6 +66,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProdutoPage({ params }: Props) {
 	const { slug } = await params;
+
+	// link antigo /loja/<id> -> redireciona para a URL amigável
+	if (/^\d+$/.test(slug)) {
+		const byId = await fetchProductById(slug);
+		if (byId?.slug) redirect(`/${byId.slug}`);
+		notFound();
+	}
+
 	const result = await fetchProductBySlug(slug);
 
 	if (result.kind === "redirect") {
@@ -77,7 +85,7 @@ export default async function ProdutoPage({ params }: Props) {
 	}
 
 	const { product } = result;
-	const url = `${SITE_URL}/loja/${product.slug ?? slug}`;
+	const url = `${SITE_URL}/${product.slug ?? `loja/${slug}`}`;
 	const ogImage = await resolveOgImage(product);
 	const price = formatPrice(product.value);
 

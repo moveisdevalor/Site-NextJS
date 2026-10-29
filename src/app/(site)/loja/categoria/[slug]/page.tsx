@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		};
 	}
 
-	const url = `${SITE_URL}/loja/categoria/${slug}`;
+	const url = `${SITE_URL}/${result.category.slug ?? `loja/categoria/${slug}`}`;
 	const description = result.category.description?.slice(0, 160) || result.category.name;
 	const ogImage = await resolveOgImage(Number(result.category.image_id) || null);
 
@@ -75,7 +75,7 @@ export default async function ProductCategoryPage({ params }: Props) {
 			<div className="row">
 				{products.map((product) => (
 					<div key={product.id} className="col-12 col-md-4 col-lg-3 mb-4">
-						<Link href={`/loja/${product.slug ?? product.id}`} className="product-card">
+						<Link href={`/${product.slug ?? `loja/${product.id}`}`} className="product-card">
 							<div className="product-card-cover">
 								<PostThumbnail
 									image_id={product.cover_image_id || Number(product.image_id) || null}

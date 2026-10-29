@@ -96,7 +96,7 @@ export default function Store({
 				<div className="row">
 					{products.map((product) => (
 						<div key={product.id} className="col-12 col-md-4 col-lg-3 mb-4">
-							<Link href={`/loja/${product.slug ?? product.id}`} className="product-card">
+							<Link href={`/${product.slug ?? `loja/${product.id}`}`} className="product-card">
 								<div className="product-card-cover">
 									<PostThumbnail
 										image_id={product.cover_image_id || Number(product.image_id) || null}

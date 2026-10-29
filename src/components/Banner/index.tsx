@@ -30,6 +30,7 @@ interface BannerData {
     new_tab?: string;
     content?: string;
     image_id?: number;
+    company_id?: number | null;
     image?: BannerImage;
 }
 
@@ -51,6 +52,8 @@ const SIZE_CONFIG: Record<BlockSize, { type: number; take: number; className: st
 const bannerCache: Record<number, BannerData[]> = {};
 const loadingCache: Record<number, Promise<BannerData[]>> = {};
 const autoSlotCounter: Record<number, number> = {};
+// empresas já exibidas na página (entre todos os tipos de banner)
+const usedCompanies = new Set<number>();
 
 function shuffle<T>(arr: T[]): T[] {
     const copy = [...arr];
@@ -126,6 +129,7 @@ export default function Banner({ size, category, slot }: BannerProps) {
     }, []);
 
     useEffect(() => {
+        let claimed: number | null = null;
         const load = async () => {
             try {
                 if (!bannerCache[config.type]?.length) {
@@ -136,9 +140,17 @@ export default function Banner({ size, category, slot }: BannerProps) {
                 const list = bannerCache[config.type];
                 if (!list.length || !mountedRef.current) return;
 
-                // slot fixo por instância → sempre diferente entre componentes na mesma página
-                const idx = mySlot.current % list.length;
-                setBanner(list[idx]);
+                // a partir do slot, pega o primeiro banner de empresa ainda não exibida na página
+                for (let i = 0; i < list.length; i++) {
+                    const b = list[(mySlot.current + i) % list.length];
+                    if (b.company_id && usedCompanies.has(b.company_id)) continue;
+                    if (b.company_id) {
+                        usedCompanies.add(b.company_id);
+                        claimed = b.company_id;
+                    }
+                    setBanner(b);
+                    return;
+                }
 
             } catch (err) {
                 console.error("Erro ao carregar banner:", err);
@@ -146,6 +158,7 @@ export default function Banner({ size, category, slot }: BannerProps) {
         };
 
         load();
+        return () => { if (claimed) usedCompanies.delete(claimed); };
     }, [config.type, category, API_URL]);
 
     if (!banner) return null;
@@ -159,7 +172,17 @@ export default function Banner({ size, category, slot }: BannerProps) {
 
     return (
         <div className={config.className}>
-            {imageUrl ? (
+            {banner.content?.trim() ? (
+                <iframe
+                    srcDoc={banner.content || ""}
+                    title="banner"
+                    sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
+                    scrolling="no"
+                    loading="lazy"
+                    onLoad={() => registerView(banner.banner_id)}
+                    style={{ border: 0, width: "100%", maxWidth: 728, height: 90, display: "block", margin: "0 auto" }}
+                />
+            ) : imageUrl ? (
                 <a
                     href={clickUrl}
                     target={banner.new_tab === "S" ? "_blank" : "_self"}
@@ -172,9 +195,7 @@ export default function Banner({ size, category, slot }: BannerProps) {
                         onLoad={() => registerView(banner.banner_id)}
                     />
                 </a>
-            ) : (
-                <div dangerouslySetInnerHTML={{ __html: banner.content || "" }} />
-            )}
+            ) : null}
         </div>
     );
 }

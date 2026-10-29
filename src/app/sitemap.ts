@@ -20,14 +20,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const productRoutes: MetadataRoute.Sitemap = products
 		.filter((p) => p.slug)
 		.map((p) => ({
-			url: `${SITE_URL}/loja/${p.slug}`,
+			url: `${SITE_URL}/${p.slug}`,
 			lastModified: new Date(),
 		}));
 
 	const categoryRoutes: MetadataRoute.Sitemap = categories
 		.filter((c) => c.slug)
 		.map((c) => ({
-			url: `${SITE_URL}/loja/categoria/${c.slug}`,
+			url: `${SITE_URL}/${c.slug}`,
 			lastModified: new Date(),
 		}));
 

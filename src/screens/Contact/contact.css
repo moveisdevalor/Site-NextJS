@@ -181,3 +181,28 @@
         font-size: 1.5rem;
     }
 }
+
+.contact-page .mail a,
+.contact-page .phone a {
+    color: #1d1d1f;
+    text-decoration: none;
+}
+
+.contact-page .mail a:hover,
+.contact-page .phone a:hover {
+    color: #8b9754;
+    text-decoration: underline;
+}
+
+.contact-newsletter {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.contact-newsletter input {
+	width: auto;
+	margin: 0;
+}

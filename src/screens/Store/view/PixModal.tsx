@@ -27,6 +27,11 @@ export default function PixModal({ productId, productName, amount, onClose }: Pi
 			return;
 		}
 
+		if (whatsapp.replace(/\D/g, "").length < 10) {
+			setError("Informe um WhatsApp válido com DDD.");
+			return;
+		}
+
 		setLoading(true);
 		setError(null);
 		try {
@@ -77,7 +82,7 @@ export default function PixModal({ productId, productName, amount, onClose }: Pi
 						<input
 							type="text"
 							className="pix-modal-input"
-							placeholder="WhatsApp (opcional)"
+							placeholder="WhatsApp com DDD"
 							value={whatsapp}
 							onChange={(e) => setWhatsapp(e.target.value)}
 						/>

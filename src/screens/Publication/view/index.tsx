@@ -95,7 +95,7 @@ export default function PublicationPage({
 
 			const list = Array.isArray(relatedRes?.data) ? relatedRes.data : [];
 
-			setRelated(list.filter(item => item.fn_revista_id !== publication.fn_revista_id));
+			setRelated(list.filter(item => item.fn_revista_id !== publication.fn_revista_id).slice(0, 6));
 
 		} catch (error) {
 			console.error("Erro ao carregar publicação:", error);
@@ -220,6 +220,9 @@ export default function PublicationPage({
 					) : (
 						<p>Nenhuma revista relacionada encontrada.</p>
 					)}
+					<div className="text-center mb-3">
+						<Link href="/publicacoes" className="btn">Ver mais</Link>
+					</div>
 				</div>
 
 			</div>

@@ -1,3 +1,5 @@
+"use client";
+
 import NextImage from "next/image";
 import { useEffect, useState } from "react";
 import { api } from "../../api";

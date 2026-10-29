@@ -49,3 +49,11 @@
     color: #323232;
     padding: 50px;
 }
+
+/* borda cinza fina em todos os banners */
+.banner-top img,
+.banner-full img,
+.banner-lateral img,
+.banner-patrocinador img{
+    border: 1px solid #e2e2e2;
+}

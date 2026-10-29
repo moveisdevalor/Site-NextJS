@@ -116,7 +116,7 @@ export default function Publications() {
 					<div className="advertise-card">
 						<div className="advertise-card-text">
 							<h2 className="advertise-product-title">Anuário de Colchões</h2>
-							<p>Esta publicação completa o portfólio de veículos impressos do IG e, como o próprio nome indica, circula todo mês de janeiro e trata exclusivamente do universo de colchões.</p>
+							<p>Esta publicação completa o portfólio de veículos impressos do IG e, como o próprio nome indica, circula uma vez por ano, em janeiro, e trata exclusivamente do universo de colchões.</p>
 							<p>Em sua 12ª edição, o Anuário se consolidou como a principal referência de inteligência e dados estratégicos para fornecedores, indústrias e varejo de colchões.</p>
 							<p>Adesões de anunciantes são aceitas até novembro de cada ano.</p>
 						</div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import {LuClock, LuMail, LuMap, LuPhone} from "react-icons/lu";
+import {LuClock, LuMail, LuMap} from "react-icons/lu";
+import { FaWhatsapp } from "react-icons/fa";
 import { api } from "../../api";
 import './contact.css';
 
@@ -17,6 +18,8 @@ export default function Contact() {
 	const [form, setForm] = useState(INITIAL_FORM);
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState("");
+	const [newsletter, setNewsletter] = useState(false);
+	const [accepted, setAccepted] = useState(false);
 
 	function handleChange(
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -38,11 +41,21 @@ export default function Contact() {
 			return;
 		}
 
+		if (!accepted) {
+			setMessage("Aceite a Política de Privacidade para enviar");
+			return;
+		}
+
 		try {
 			setLoading(true);
 			setMessage("");
 
 			await api.post("/contact", form);
+
+			// e-mail já cadastrado na newsletter (409) não é erro para o contato
+			if (newsletter) {
+				await api.post("/email", { name: form.name, email: form.email, empresa: form.empresa, phone: form.phone, authorized: 1 }).catch(() => {});
+			}
 
 			setMessage("Mensagem enviada com sucesso!");
 			setForm(INITIAL_FORM);
@@ -71,15 +84,36 @@ export default function Contact() {
 
 					<div className="mail d-flex pt-4">
 						<LuMail />
-						<p>contato@moveisdevalor.com.br</p>
+						<p>
+							<a href="mailto:contato@moveisdevalor.com.br">
+								contato@moveisdevalor.com.br
+							</a>
+						</p>
 					</div>
 					<div className="phone d-flex pt-2">
-						<LuPhone />
-						<p>+55 41 99912-9877</p>
+						<FaWhatsapp />
+						<p>
+							<a
+								href="https://wa.me/5541999129877?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								+55 41 99912-9877
+							</a>
+						</p>
 					</div>
 					<div className="phone d-flex pt-2">
-						<LuPhone />
-						<p>+55 41 99994-0090 (Jornalismo)</p>
+						<FaWhatsapp />
+						<p>
+							<a
+								href="https://wa.me/5541999940090?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								+55 41 99994-0090
+							</a>{" "}
+							(Jornalismo)
+						</p>
 					</div>
 
 					<div className="adress d-flex pt-2">
@@ -142,6 +176,19 @@ export default function Contact() {
 							onChange={handleChange}
 							rows={4}
 						/>
+
+						<label className="contact-newsletter">
+							<input type="checkbox" checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} />
+							Quero receber notícias da newsletter Móveis de Valor
+						</label>
+
+						<label className="contact-newsletter">
+							<input type="checkbox" checked={accepted} onChange={(e) => setAccepted(e.target.checked)} />
+							<span>
+								Li e concordo com a{" "}
+								<a href="/politica-de-privacidade" target="_blank" rel="noreferrer">Política de Privacidade</a>
+							</span>
+						</label>
 
 						<button disabled={loading}>
 							{loading ? "Enviando..." : "Enviar"}

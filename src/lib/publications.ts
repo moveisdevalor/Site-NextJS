@@ -111,9 +111,9 @@ export async function fetchPublicationBySlug(
 		{ revalidate: PUBLICATIONS_REVALIDATE, tags: ["publications"] },
 	);
 	const relatedAll = relatedRes?.data ?? [];
-	const related = relatedAll.filter(
-		(item) => item.fn_revista_id !== publication.fn_revista_id,
-	);
+	const related = relatedAll
+		.filter((item) => item.fn_revista_id !== publication.fn_revista_id)
+		.slice(0, 6);
 
 	return { kind: "publication", publication, related };
 }
